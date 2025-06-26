@@ -98,8 +98,15 @@ export default function Home() {
               <div key={i} className="h-[32px] flex items-center">
                 {i === lineIndex ? (
                   <div className="flex items-center gap-2 font-bold">
-                    {line.icon}
-                    <span>:</span>
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      className="flex items-center gap-2"
+                    >
+                      {line.icon}
+                      <span>:</span>
+                    </motion.div>
                     {line.href ? (
                       <a
                         href={line.href}
@@ -109,14 +116,14 @@ export default function Home() {
                       >
                         <Scramble
                           text={line.text}
-                          delay={0}
+                          delay={300}
                           onDone={nextLine}
                         />
                       </a>
                     ) : (
                       <Scramble
                         text={line.text}
-                        delay={0}
+                        delay={300}
                         onDone={nextLine}
                       />
                     )}
