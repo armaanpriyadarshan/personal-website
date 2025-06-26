@@ -25,7 +25,7 @@ export default function Experience({
       className="mb-8 border border-[var(--grey)] p-4"
     >
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-[-28px]">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-[-30px]">
         <div className="flex flex-col md:flex-row md:items-center md:gap-4">
           <h3 className="text-lg font-bold text-[var(--green)] font-mono bg-background px-2">
             {company}
