@@ -7,6 +7,7 @@ import Scramble from './components/Scramble';
 import { IoSchool, IoMail, IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { FaSchool } from "react-icons/fa";
 import Command from './components/Command';
+import Experience from './components/Experience';
 
 export default function Home() {
   const infoLines = [
@@ -40,7 +41,84 @@ export default function Home() {
     },
   ];
 
+  const commands = [
+    {
+      id: 'whoami',
+      fileLocation: "~/about",
+      commandText: "whoami",
+      placeholder: "enter 'whoami'",
+      content: (
+        <div className="ml-4">
+          <p>my name is armaan priyadarshan, and i&apos;m a student at dartmouth college pursuing computer science, mathematics, and potentially economics. my interests center around computational problem solving, especially in the field of artificial intelligence. i&apos;m currently a software engineer intern at fidelity investments.</p>
+          <p className="mt-2">
+            view my <a 
+              href="/resume.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              <span className="underline hover:bg-foreground hover:text-background hover:no-underline">
+                resume
+              </span>
+            </a>
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'cd-experiences',
+      fileLocation: "~/about",
+      commandText: "ls experiences",
+      placeholder: "enter 'ls experiences'",
+      content: (
+        <div className="ml-4 mt-4">
+          {[
+            {
+              company: "fidelity investments",
+              location: "merrimack, nh",
+              startDate: "2025-06-02",
+              endDate: null,
+              role: "software engineer intern",
+              description: "digital account management (dam) space"
+            },
+            {
+              company: "telos",
+              location: "remote",
+              startDate: "2024-06-02",
+              endDate: "2024-08-31",
+              role: "front-end engineer intern",
+              description: "design and implementation for llm-powered positive psychology mobile app"
+            },
+            {
+              company: "social neuroscience of affective processes (snap) lab",
+              location: "worcester, ma",
+              startDate: "2024-05-02",
+              endDate: "2025-06-31",
+              role: "researcher",
+              description: "data automation and generative ai—llms & vector databases—for psychological applications and research"
+            },
+            {
+              company: "brown university school of engineering",
+              location: "providence, ri",
+              startDate: "2023-06-02",
+              endDate: "2023-08-31",
+              role: "researcher",
+              description: "computer vision for data analysis within fluid mechanics research"
+            }
+          ].map((exp, i) => (
+            <Experience key={exp.company}
+              {...exp}
+              delay={i * 0.3}
+            />
+          ))}
+        </div>
+      )
+    }
+    // Add more commands here as needed
+  ];
+
   const [lineIndex, setLineIndex] = useState(-1);
+  const [completedCommands, setCompletedCommands] = useState(new Set());
 
   const nextLine = useCallback(() => {
     setTimeout(() => {
@@ -48,8 +126,34 @@ export default function Home() {
     }, 500);
   }, []);
 
+  const handleCommandComplete = useCallback((commandId) => {
+    setCompletedCommands(prev => new Set([...prev, commandId]));
+  }, []);
+
+  const renderCommands = () => {
+    return commands.map((command, index) => {
+      const isVisible = index === 0 || completedCommands.has(commands[index - 1].id);
+      
+      if (!isVisible) return null;
+      
+      return (
+        <div key={command.id} className={index === 0 ? "mt-20" : "mt-8"}>
+          <Command 
+            fileLocation={command.fileLocation}
+            commandText={command.commandText}
+            placeholder={command.placeholder}
+            onComplete={() => handleCommandComplete(command.id)}
+            shouldScramble={index === 0}
+          >
+            {command.content}
+          </Command>
+        </div>
+      );
+    });
+  };
+
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <main className="min-h-screen flex flex-col items-center pt-48 pb-12">
       <div className="max-w-4xl mx-auto px-6 w-full">
         <div className="flex items-center gap-20">
           {/* Image */}
@@ -169,25 +273,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mt-20" style={{ minHeight: '70px' }}>
-          <Command fileLocation={"~/about"} commandText={"whoami"} placeholder={"enter 'whoami'"}>
-            <div className="ml-4">
-              <p>my name is armaan priyadarshan, and i&apos;m a student at dartmouth college pursuing computer science, mathematics, and potentially economics. my interests center around computational problem solving, especially in the field of artificial intelligence. i&apos;m currently a software engineer intern at fidelity investments.</p>
-              <p className="mt-2">
-                view my <a 
-                  href="/resume.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  <span className="underline hover:bg-foreground hover:text-background hover:no-underline">
-                    resume
-                  </span>
-                </a>
-              </p>
-            </div>
-          </Command>
-        </div>
+        {renderCommands()}
       </div>
     </main>
   );

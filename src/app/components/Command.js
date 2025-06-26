@@ -1,39 +1,30 @@
 import { useEffect, useState, useRef } from 'react';
 import Scramble from './Scramble';
 
-export default function Command({ fileLocation, commandText, placeholder, children }) {
+export default function Command({ fileLocation, commandText, placeholder, children, onComplete, shouldScramble = true }) {
   const [fileLocationDone, setFileLocationDone] = useState(false);
   const [timeDone, setTimeDone] = useState(false);
   const [input, setInput] = useState('');
   const [showBlock, setShowBlock] = useState(true);
-  const [liveTime, setLiveTime] = useState('');
-  const [staticTime, setStaticTime] = useState('');
   const [isError, setIsError] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const ref = useRef(null);
   const inputRef = useRef(null);
 
-  // Set static time when fileLocation is done
+  // Call onComplete when content is shown
   useEffect(() => {
-    if (fileLocationDone) {
-      const now = new Date();
-      const pad = (n) => n.toString().padStart(2, '0');
-      setStaticTime(`${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`);
+    if (showContent && onComplete) {
+      onComplete();
     }
-  }, [fileLocationDone]);
+  }, [showContent, onComplete]);
 
-  // Start live time after time is done
+  // If shouldScramble is false, show everything immediately
   useEffect(() => {
-    if (!timeDone) return;
-    const update = () => {
-      const now = new Date();
-      const pad = (n) => n.toString().padStart(2, '0');
-      setLiveTime(`${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`);
-    };
-    update();
-    const interval = setInterval(update, 1000);
-    return () => clearInterval(interval);
-  }, [timeDone]);
+    if (!shouldScramble) {
+      setFileLocationDone(true);
+      setTimeDone(true);
+    }
+  }, [shouldScramble]);
 
   // Blinking block only after time is done
   useEffect(() => {
@@ -84,18 +75,23 @@ export default function Command({ fileLocation, commandText, placeholder, childr
           className="text-lg md:text-xl font-mono px-4 rounded select-none font-semibold"
           style={{ color: 'var(--lightBlue)', letterSpacing: '0.03em' }}
         >
-          <Scramble text={fileLocation} delay={0} onDone={() => setFileLocationDone(true)} />
+          {shouldScramble ? (
+            <Scramble text={fileLocation} delay={0} onDone={() => setFileLocationDone(true)} />
+          ) : (
+            fileLocation
+          )}
         </div>
         <div
           className="text-lg md:text-xl font-mono px-4 pt-1 rounded select-none flex items-center"
           style={{ letterSpacing: '0.03em' }}
         >
           [
-          {fileLocationDone && !timeDone && (
-            <Scramble text={staticTime} delay={0} onDone={() => setTimeDone(true)} />
-          )}
-          {timeDone && (
-            <span>{liveTime}</span>
+          {shouldScramble ? (
+            fileLocationDone && (
+              <Scramble text="armaan@arch" delay={0} onDone={() => setTimeDone(true)} />
+            )
+          ) : (
+            <span>armaan@arch</span>
           )}
           ]
           <span
@@ -142,12 +138,12 @@ export default function Command({ fileLocation, commandText, placeholder, childr
             </div>
           )}
         </div>
+        {showContent && (
+          <div className="relative w-full" style={{ paddingTop: '1rem' }}>
+            {children}
+          </div>
+        )}
       </div>
-      {showContent && (
-        <div className="absolute top-full left-0 w-full" style={{ paddingTop: '1rem' }}>
-          {children}
-        </div>
-      )}
     </div>
   );
 } 
