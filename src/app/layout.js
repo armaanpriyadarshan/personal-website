@@ -3,7 +3,7 @@ import { IBM_Plex_Mono } from 'next/font/google';
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
-  weight: ['200'],
+  weight: ['400'],
   variable: '--font-ibm-plex-mono',
 });
 
