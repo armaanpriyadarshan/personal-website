@@ -111,7 +111,7 @@ export default function Home() {
                       {line.href ? (
                         <a
                           href={line.href}
-                          className="hover:underline"
+                          className="hover:bg-foreground hover:text-background"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -136,7 +136,7 @@ export default function Home() {
                       {line.href ? (
                         <a
                           href={line.href}
-                          className="hover:underline"
+                          className="hover:bg-foreground hover:text-background"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -171,7 +171,21 @@ export default function Home() {
         </div>
         <div className="mt-20" style={{ minHeight: '70px' }}>
           <Command fileLocation={"~/about"} commandText={"whoami"} placeholder={"enter 'whoami'"}>
-            <div className="text-base md:text-lg font-mono text-white/80">More content goes here...</div>
+            <div className="ml-4">
+              <p>my name is armaan priyadarshan, and i&apos;m a student at dartmouth college pursuing computer science, mathematics, and potentially economics. my interests center around computational problem solving, especially in the field of artificial intelligence. i&apos;m currently a software engineer intern at fidelity investments.</p>
+              <p className="mt-2">
+                view my <a 
+                  href="/resume.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  <span className="underline hover:bg-foreground hover:text-background hover:no-underline">
+                    resume
+                  </span>
+                </a>
+              </p>
+            </div>
           </Command>
         </div>
       </div>

@@ -67,10 +67,18 @@ export default function Command({ fileLocation, commandText, placeholder, childr
         setIsError(true);
       }
     }
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      // Only complete if input is a starting subsequence of commandText
+      if (commandText.startsWith(input)) {
+        setInput(commandText);
+        if (isError) setIsError(false);
+      }
+    }
   };
 
   return (
-    <div className="flex flex-col mt-12" ref={ref}>
+    <div className="flex flex-col mt-12 relative" ref={ref}>
       <div className="text-left w-full">
         <div
           className="text-lg md:text-xl font-mono px-4 rounded select-none font-semibold"
@@ -134,12 +142,12 @@ export default function Command({ fileLocation, commandText, placeholder, childr
             </div>
           )}
         </div>
-        <div style={{ minHeight: '80px', paddingTop: '2rem' }}>
-          {showContent ? (
-            <div>{children}</div>
-          ) : null}
-        </div>
       </div>
+      {showContent && (
+        <div className="absolute top-full left-0 w-full" style={{ paddingTop: '1rem' }}>
+          {children}
+        </div>
+      )}
     </div>
   );
 } 
