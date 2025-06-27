@@ -69,7 +69,7 @@ export default function Command({ fileLocation, commandText, placeholder, childr
   };
 
   return (
-    <div className="flex flex-col mt-12 relative" ref={ref}>
+    <div className="flex flex-col relative" ref={ref}>
       <div className="text-left w-full">
         <div
           className="text-lg md:text-xl font-mono px-4 rounded select-none font-semibold"
@@ -129,7 +129,7 @@ export default function Command({ fileLocation, commandText, placeholder, childr
               />
               {input === '' && (
                 <span
-                  className="absolute left-0 pointer-events-none"
+                  className="absolute left-0 pointer-events-none font-mono"
                   style={{ color: 'var(--grey)', zIndex: 1 }}
                 >
                   {placeholder}

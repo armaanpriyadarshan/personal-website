@@ -49,8 +49,8 @@ export default function Home() {
       placeholder: "enter 'whoami'",
       content: (
         <div className="ml-4">
-          <p>my name is armaan priyadarshan, and i&apos;m a student at dartmouth college pursuing computer science, mathematics, and potentially economics. my interests center around computational problem solving, especially in the field of artificial intelligence. i&apos;m currently a software engineer intern at fidelity investments.</p>
-          <p className="mt-2">
+          <p className="font-mono">my name is armaan priyadarshan, and i&apos;m a student at dartmouth college pursuing computer science, mathematics, and potentially economics. my interests center around computational problem solving, especially in the field of artificial intelligence. i&apos;m currently a software engineer intern at fidelity investments.</p>
+          <p className="mt-2 font-mono">
             view my <a 
               href="/resume.pdf" 
               target="_blank" 
@@ -95,7 +95,7 @@ export default function Home() {
               startDate: "2024-05-02",
               endDate: "2025-06-31",
               role: "researcher",
-              description: "data automation and generative ai—llms & vector databases—for psychological applications and research"
+              description: "data automation and generative ai — llms & vector databases — for psychological applications and research"
             },
             {
               company: "brown university school of engineering",
@@ -109,8 +109,20 @@ export default function Home() {
             <Experience key={exp.company}
               {...exp}
               delay={i * 0.3}
+              isLast={i === 3}
             />
           ))}
+        </div>
+      )
+    },
+    {
+      id: 'ls-projects',
+      fileLocation: "~/about",
+      commandText: "ls projects",
+      placeholder: "enter 'ls projects'",
+      content: (
+        <div className="ml-4 mt-4">
+          
         </div>
       )
     }
@@ -137,7 +149,7 @@ export default function Home() {
       if (!isVisible) return null;
       
       return (
-        <div key={command.id} className={index === 0 ? "mt-20" : "mt-8"}>
+        <div key={command.id} className={index === 0 ? "mt-20" : "mt-12"}>
           <Command 
             fileLocation={command.fileLocation}
             commandText={command.commandText}
@@ -178,7 +190,7 @@ export default function Home() {
           {/* Text + Brackets + Circles */}
           <div className="flex flex-col items-center">
             {/* Name */}
-            <div className="h-[32px] w-full pl-12 text-xl font-bold mb-6">
+            <div className="h-[32px] w-full pl-12 text-xl font-bold mb-6 font-mono">
               <Scramble text="armaan priyadarshan" delay={800} onDone={nextLine} />
             </div>
 
@@ -202,7 +214,7 @@ export default function Home() {
               {infoLines.map((line, i) => (
                 <div key={i} className="h-[32px] flex items-center">
                   {i === lineIndex ? (
-                    <div className="flex items-center gap-2 font-bold">
+                    <div className="flex items-center gap-2 font-bold font-mono">
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -234,7 +246,7 @@ export default function Home() {
                       )}
                     </div>
                   ) : i < lineIndex ? (
-                    <div className="flex items-center gap-2 font-bold">
+                    <div className="flex items-center gap-2 font-bold font-mono">
                       {line.icon}
                       <span>:</span>
                       {line.href ? (

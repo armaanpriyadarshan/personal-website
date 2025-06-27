@@ -7,7 +7,8 @@ export default function Experience({
   endDate, 
   role, 
   description, 
-  delay = 0 
+  delay = 0,
+  isLast = false
 }) {
   const formatDate = (date) => {
     if (!date) return 'Present';
@@ -22,7 +23,7 @@ export default function Experience({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="mb-8 border border-[var(--grey)] p-4"
+      className={`border border-[var(--grey)] p-4 ${!isLast ? 'mb-8' : ''} hover:scale-105 transition-transform duration-200 group`}
     >
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-[-30px]">
@@ -39,17 +40,17 @@ export default function Experience({
       {/* Role and Location */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
         <div className="mb-1 md:mb-0">
-          <h4 className="text-md text-[var(--foreground)] font-mono px-2">
+          <h4 className="text-md font-mono text-[var(--foreground)] px-2">
             {role}
           </h4>
         </div>
-        <div className="text-sm text-[var(--foreground)] font-mono md:text-right uppercase px-2">
+        <div className="text-sm font-mono text-[var(--foreground)] md:text-right uppercase px-2">
           [{location}]
         </div>
       </div>
 
       {/* Description */}
-      <div className="text-sm text-[var(--grey)] leading-relaxed px-2">
+      <div className="text-sm font-mono text-[var(--grey)] group-hover:text-white transition-colors duration-200 leading-relaxed px-2">
         {description}
       </div>
     </motion.div>
