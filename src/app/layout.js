@@ -8,7 +8,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  title: "armaan priyadarshan",
+  title: "/home/armaan",
   description: "armaan priyadarshan's website",
 };
 
