@@ -42,9 +42,9 @@ export default function FileManager({ directory, subdirectories = [] }) {
         <div className="absolute top-0 left-4 mt-[-12px] bg-background px-2">
           <span className="text-[var(--green)] font-semibold">armaan@arch</span>
           <span className="text-white font-semibold">:</span>
-          <span className="text-[var(--darkBlue)] font-semibold">~/about/{directory}</span>
+          <span className="text-[var(--darkBlue)] font-semibold">~/about/{directory}/</span>
           {getActiveProject() && (
-            <span className="text-white font-semibold">/{getActiveProject().name}</span>
+            <span className="text-white font-semibold">{getActiveProject().name}</span>
           )}
         </div>
         
