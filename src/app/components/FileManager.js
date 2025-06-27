@@ -50,7 +50,7 @@ export default function FileManager({ directory, subdirectories = [] }) {
         
         {/* Folder display inline with first 'a' in armaan@arch */}
         <div className="mt-4 ml-2 flex">
-          <div>
+          <div className="mt-0.5">
             <span className="bg-[var(--darkBlue)] text-[var(--background)] px-2 py-1 font-semibold">
               {directory}
             </span>
