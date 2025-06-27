@@ -135,7 +135,7 @@ export default function Home() {
   const nextLine = useCallback(() => {
     setTimeout(() => {
       setLineIndex((i) => i + 1);
-    }, 500);
+    }, 300);
   }, []);
 
   const handleCommandComplete = useCallback((commandId) => {
@@ -190,16 +190,16 @@ export default function Home() {
           {/* Text + Brackets + Circles */}
           <div className="flex flex-col items-center">
             {/* Name */}
-            <div className="h-[32px] w-full pl-12 text-xl font-bold mb-6 font-mono">
-              <Scramble text="armaan priyadarshan" delay={800} onDone={nextLine} />
+            <div className="h-[32px] w-full pl-12 text-xl font-bold mb-2 font-mono">
+              <Scramble text="ARMAAN PRIYADARSHAN" delay={400} onDone={nextLine} />
             </div>
 
             {/* Bracket Box */}
             <motion.div
-              className="relative px-12 py-6 border border-transparent w-[480px] min-h-[180px]"
+              className="relative px-12 py-4 border border-transparent w-[480px] min-h-[180px]"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ delay: 0.8, duration: 0.3 }}
+              transition={{ delay: 0.4, duration: 0.3 }}
               style={{ transformOrigin: 'center' }}
             >
               {/* Brackets */}
@@ -233,14 +233,14 @@ export default function Home() {
                         >
                           <Scramble
                             text={line.text}
-                            delay={300}
+                            delay={150}
                             onDone={nextLine}
                           />
                         </a>
                       ) : (
                         <Scramble
                           text={line.text}
-                          delay={300}
+                          delay={150}
                           onDone={nextLine}
                         />
                       )}
