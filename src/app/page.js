@@ -8,6 +8,7 @@ import { IoSchool, IoMail, IoLogoGithub, IoLogoLinkedin } from "react-icons/io5"
 import { FaSchool } from "react-icons/fa";
 import Command from './components/Command';
 import Experience from './components/Experience';
+import FileManager from './components/FileManager';
 
 export default function Home() {
   const infoLines = [
@@ -39,6 +40,81 @@ export default function Home() {
       color: "bg-[var(--darkBlue)]",
       href: "https://www.linkedin.com/in/armaanpriyadarshan/",
     },
+  ];
+
+  const projects = [
+    {
+      name: "personal website",
+      size: "2.1MB",
+      lastModified: "2024-01-15",
+      content: <div>Personal portfolio website built with Next.js and Framer Motion</div>
+    },
+    {
+      name: "post.it",
+      size: "1.8MB", 
+      lastModified: "2024-01-10",
+      content: <div>Social media platform for sharing thoughts and ideas</div>
+    },
+    {
+      name: "connextgen",
+      size: "3.2MB",
+      lastModified: "2024-01-08", 
+      content: <div>AI-powered networking platform</div>
+    },
+    {
+      name: "medisign",
+      size: "2.5MB",
+      lastModified: "2024-01-05",
+      content: <div>Medical sign language translation app</div>
+    },
+    {
+      name: "llm-data-optimization",
+      size: "1.9MB",
+      lastModified: "2024-01-03",
+      content: <div>LLM data optimization and preprocessing tools</div>
+    },
+    {
+      name: "ezap-companion",
+      size: "2.7MB",
+      lastModified: "2023-12-28",
+      content: <div>Companion app for productivity and task management</div>
+    },
+    {
+      name: "kevin",
+      size: "1.5MB",
+      lastModified: "2023-12-20",
+      content: <div>AI assistant for personal productivity</div>
+    },
+    {
+      name: "rotation-tracking",
+      size: "2.3MB",
+      lastModified: "2023-12-15",
+      content: <div>Computer vision system for rotation tracking</div>
+    },
+    {
+      name: "ftc",
+      size: "3.1MB",
+      lastModified: "2023-12-10",
+      content: <div>FTC robotics competition code and documentation</div>
+    },
+    {
+      name: "drone",
+      size: "2.8MB",
+      lastModified: "2023-12-05",
+      content: <div>Autonomous drone navigation and control system</div>
+    },
+    {
+      name: "multimodal-glasses",
+      size: "2.0MB",
+      lastModified: "2023-11-30",
+      content: <div>Multimodal interface for smart glasses</div>
+    },
+    {
+      name: "pill-counting",
+      size: "1.7MB",
+      lastModified: "2023-11-25",
+      content: <div>Computer vision system for pill counting and verification</div>
+    }
   ];
 
   const commands = [
@@ -122,11 +198,24 @@ export default function Home() {
       placeholder: "enter 'ls projects'",
       content: (
         <div className="ml-4 mt-4">
-          
+          <FileManager 
+            directory="projects" 
+            subdirectories={projects} 
+          />
+        </div>
+      )
+    },
+    {
+      id: 'cat-skills',
+      fileLocation: "~/about",
+      commandText: "cat skills.txt",
+      placeholder: "enter 'cat skills.txt'",
+      content: (
+        <div className="ml-4 mt-4">
+          {/* Skills content to be added */}
         </div>
       )
     }
-    // Add more commands here as needed
   ];
 
   const [lineIndex, setLineIndex] = useState(-1);
