@@ -44,13 +44,13 @@ export default function Home() {
 
   const projects = [
     {
-      name: "personal website",
+      name: "personal-website",
       size: "2.1MB",
       lastModified: "2024-01-15",
       content: <div>Personal portfolio website built with Next.js and Framer Motion</div>
     },
     {
-      name: "post.it",
+      name: "post-it",
       size: "1.8MB", 
       lastModified: "2024-01-10",
       content: <div>Social media platform for sharing thoughts and ideas</div>
