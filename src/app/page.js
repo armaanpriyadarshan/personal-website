@@ -54,7 +54,7 @@ export default function Home() {
       name: "post-it",
       size: "1.8MB", 
       lastModified: "2024-01-10",
-      content: <Project project="post-it" />
+      content: <Project project="post it" />
     },
     {
       name: "connextgen",
@@ -72,13 +72,13 @@ export default function Home() {
       name: "llm-data-optimization",
       size: "1.9MB",
       lastModified: "2024-01-03",
-      content: <Project project="llm-data-optimization" />
+      content: <Project project="llm data filtering" />
     },
     {
       name: "ezap-companion",
       size: "2.7MB",
       lastModified: "2023-12-28",
-      content: <Project project="ezap-companion" />
+      content: <Project project="ezapcompanion" />
     },
     {
       name: "kevin",
@@ -90,7 +90,7 @@ export default function Home() {
       name: "rotation-tracking",
       size: "2.3MB",
       lastModified: "2023-12-15",
-      content: <Project project="rotation-tracking" />
+      content: <Project project="rotation tracking" />
     },
     {
       name: "ftc",
@@ -108,13 +108,13 @@ export default function Home() {
       name: "multimodal-glasses",
       size: "2.0MB",
       lastModified: "2023-11-30",
-      content: <Project project="multimodal-glasses" />
+      content: <Project project="multimodal glasses" />
     },
     {
       name: "pill-counting",
       size: "1.7MB",
       lastModified: "2023-11-25",
-      content: <Project project="pill-counting" />
+      content: <Project project="pill counting" />
     }
   ];
 
