@@ -30,7 +30,7 @@ export default function Scramble({ text, delay = 0, onDone = () => {} }) {
           .join('');
         setOutput(partial + scramble);
         frame++;
-      }, 50);
+      }, 25);
     }, delay);
 
     return () => {

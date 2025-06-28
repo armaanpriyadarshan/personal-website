@@ -9,6 +9,7 @@ import { FaSchool } from "react-icons/fa";
 import Command from './components/Command';
 import Experience from './components/Experience';
 import FileManager from './components/FileManager';
+import Project from './components/Project';
 
 export default function Home() {
   const infoLines = [
@@ -45,75 +46,75 @@ export default function Home() {
   const projects = [
     {
       name: "personal-website",
-      size: "2.1MB",
-      lastModified: "2024-01-15",
-      content: <div>Personal portfolio website built with Next.js and Framer Motion</div>
+      size: "4.0K",
+      lastModified: "2025-06-27",
+      content: <Project project="personal portfolio website" github="https://github.com/armaanpriyadarshan/personal-website" description="a terminal-themed website for myself (this one)" stack={["next.js", "tailwind css", "react", "javascript"]} media="/img/projects/personal-website.png" />
     },
     {
       name: "post-it",
       size: "1.8MB", 
       lastModified: "2024-01-10",
-      content: <div>Social media platform for sharing thoughts and ideas</div>
+      content: <Project project="post-it" />
     },
     {
       name: "connextgen",
       size: "3.2MB",
       lastModified: "2024-01-08", 
-      content: <div>AI-powered networking platform</div>
+      content: <Project project="connextgen" />
     },
     {
       name: "medisign",
       size: "2.5MB",
       lastModified: "2024-01-05",
-      content: <div>Medical sign language translation app</div>
+      content: <Project project="medisign" />
     },
     {
       name: "llm-data-optimization",
       size: "1.9MB",
       lastModified: "2024-01-03",
-      content: <div>LLM data optimization and preprocessing tools</div>
+      content: <Project project="llm-data-optimization" />
     },
     {
       name: "ezap-companion",
       size: "2.7MB",
       lastModified: "2023-12-28",
-      content: <div>Companion app for productivity and task management</div>
+      content: <Project project="ezap-companion" />
     },
     {
       name: "kevin",
       size: "1.5MB",
       lastModified: "2023-12-20",
-      content: <div>AI assistant for personal productivity</div>
+      content: <Project project="kevin" />
     },
     {
       name: "rotation-tracking",
       size: "2.3MB",
       lastModified: "2023-12-15",
-      content: <div>Computer vision system for rotation tracking</div>
+      content: <Project project="rotation-tracking" />
     },
     {
       name: "ftc",
       size: "3.1MB",
       lastModified: "2023-12-10",
-      content: <div>FTC robotics competition code and documentation</div>
+      content: <Project project="ftc" />
     },
     {
       name: "drone",
       size: "2.8MB",
       lastModified: "2023-12-05",
-      content: <div>Autonomous drone navigation and control system</div>
+      content: <Project project="drone" />
     },
     {
       name: "multimodal-glasses",
       size: "2.0MB",
       lastModified: "2023-11-30",
-      content: <div>Multimodal interface for smart glasses</div>
+      content: <Project project="multimodal-glasses" />
     },
     {
       name: "pill-counting",
       size: "1.7MB",
       lastModified: "2023-11-25",
-      content: <div>Computer vision system for pill counting and verification</div>
+      content: <Project project="pill-counting" />
     }
   ];
 

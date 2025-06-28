@@ -17,10 +17,12 @@ export default function FileManager({ directory, subdirectories = [] }) {
         setActiveIndex(prev => Math.min(subdirectories.length - 1, prev + 1));
       }
       
-      // Scroll into view on any keystroke
-      containerRef.current?.scrollIntoView({ 
-        block: 'center' 
-      });
+      // Scroll into view on arrow key presses
+      if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        containerRef.current?.scrollIntoView({ 
+          block: 'center' 
+        });
+      }
     };
 
     document.addEventListener('keydown', handleKeyDown);
@@ -32,7 +34,7 @@ export default function FileManager({ directory, subdirectories = [] }) {
     setActiveIndex(index);
   };
 
-  const getActiveProject = () => {
+  const getActiveSubdirectory = () => {
     return subdirectories[activeIndex] || null;
   };
 
@@ -41,10 +43,10 @@ export default function FileManager({ directory, subdirectories = [] }) {
       <div className="border border-[var(--grey)] p-4 relative">
         <div className="absolute top-0 left-4 mt-[-12px] bg-background px-2">
           <span className="text-[var(--green)] font-semibold">armaan@arch</span>
-          <span className="text-white font-semibold">:</span>
+          <span className="font-semibold">:</span>
           <span className="text-[var(--darkBlue)] font-semibold">~/about/{directory}/</span>
-          {getActiveProject() && (
-            <span className="text-white font-semibold">{getActiveProject().name}</span>
+          {getActiveSubdirectory() && (
+            <span className="font-semibold">{getActiveSubdirectory().name}</span>
           )}
         </div>
         
@@ -77,23 +79,21 @@ export default function FileManager({ directory, subdirectories = [] }) {
             })}
           </div>
           
-          {/* Project content display */}
-          {getActiveProject() && (
+          {/* Subdirectory content display */}
+          {getActiveSubdirectory() && (
             <div className="ml-8 flex-1">
-              <div className="text-[var(--foreground)] font-semibold">
-                {getActiveProject().content}
-              </div>
+              {getActiveSubdirectory().content}
             </div>
           )}
         </div>
         
         {/* File details line */}
-        {getActiveProject() && (
+        {getActiveSubdirectory() && (
           <div className="mt-4 ml-4 text-base">
             <span className="text-[var(--lightBlue)]">drwxr-xr-x</span>
-            <span className="text-white ml-2">armaan</span>
-            <span className="text-white ml-2">{getActiveProject().size}</span>
-            <span className="text-white ml-2">{getActiveProject().lastModified}</span>
+            <span className="ml-2">armaan</span>
+            <span className="ml-2">{getActiveSubdirectory().size}</span>
+            <span className="ml-2">{getActiveSubdirectory().lastModified}</span>
           </div>
         )}
       </div>

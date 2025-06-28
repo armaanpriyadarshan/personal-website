@@ -50,7 +50,7 @@ export default function Experience({
       </div>
 
       {/* Description */}
-      <div className="text-sm font-mono text-[var(--grey)] group-hover:text-white transition-colors duration-200 leading-relaxed px-2">
+      <div className="text-sm font-mono text-[var(--grey)] group-hover:text-foreground transition-colors duration-200 leading-relaxed px-2">
         {description}
       </div>
     </motion.div>
