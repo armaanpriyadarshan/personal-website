@@ -19,9 +19,9 @@ export default function FileManager({ directory, subdirectories = [] }) {
       
       // Scroll into view on arrow key presses
       if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-        containerRef.current?.scrollIntoView({ 
-          block: 'center' 
-        });
+      containerRef.current?.scrollIntoView({ 
+        block: 'center' 
+      });
       }
     };
 

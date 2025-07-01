@@ -46,15 +46,15 @@ export default function Home() {
   const projects = [
     {
       name: "personal-website",
-      size: "4.0K",
+      size: "1.5G",
       lastModified: "2025-06-27",
       content: <Project project="personal portfolio website" github="https://github.com/armaanpriyadarshan/personal-website" description="a terminal-themed website for myself (this one)" stack={["next.js", "tailwind css", "react", "javascript"]} media="/img/projects/personal-website.png" />
     },
     {
       name: "post-it",
-      size: "1.8MB", 
+      size: "1.3G", 
       lastModified: "2024-01-10",
-      content: <Project project="post it" />
+      content: <Project project="post.it" github="https://github.com/armaanpriyadarshan/post-it" description="a sticky-note-inspired creative writing app" stack={["next.js", "tailwind css", "supabase", "gemini", "react", "javascript"]} media="/img/projects/post-it.png" />
     },
     {
       name: "connextgen",
@@ -193,10 +193,10 @@ export default function Home() {
       )
     },
     {
-      id: 'ls-projects',
+      id: 'lf-projects',
       fileLocation: "~/about",
-      commandText: "ls projects",
-      placeholder: "enter 'ls projects'",
+      commandText: "lf projects",
+      placeholder: "enter 'lf projects'",
       content: (
         <div className="ml-4 mt-4">
           <FileManager 
