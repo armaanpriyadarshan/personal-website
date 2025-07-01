@@ -53,68 +53,68 @@ export default function Home() {
     {
       name: "post-it",
       size: "1.3G", 
-      lastModified: "2024-01-10",
+      lastModified: "2025-04-27",
       content: <Project project="post.it" github="https://github.com/armaanpriyadarshan/post-it" description="a sticky-note-inspired creative writing app" stack={["next.js", "tailwind css", "supabase", "gemini", "react", "javascript"]} media="/img/projects/post-it.png" />
     },
     {
       name: "connextgen",
-      size: "3.2MB",
-      lastModified: "2024-01-08", 
-      content: <Project project="connextgen" />
+      size: "910M",
+      lastModified: "2024-10-29", 
+      content: <Project project="connextgen" github="https://github.com/ConnextGen/connextgen" description="a b2c portal for a 501c3 nonprofit organization" stack={["react", "mongodb", "node.js", "aws s3", "javascript"]} media="/img/projects/connextgen.png" />
     },
     {
       name: "medisign",
-      size: "2.5MB",
-      lastModified: "2024-01-05",
-      content: <Project project="medisign" />
+      size: "510M",
+      lastModified: "2024-05-10",
+      content: <Project project="medisign" github="https://github.com/armaanpriyadarshan/MediSign" description="a mobile app to aid deaf/hoh patients" stack={["react native", "expo", "firebase", "javascript"]} media="/img/projects/medisign.png" />
     },
     {
       name: "llm-data-optimization",
-      size: "1.9MB",
-      lastModified: "2024-01-03",
-      content: <Project project="llm data filtering" />
+      size: "5.0G",
+      lastModified: "2024-01-29",
+      content: <Project project="llm research" description="filtering llm datasets by sentence completion" stack={["python", "huggingface", "google colab", "gpt-2"]} media="/img/projects/llms.png" />
     },
     {
       name: "ezap-companion",
-      size: "2.7MB",
-      lastModified: "2023-12-28",
-      content: <Project project="ezapcompanion" />
+      size: "448M",
+      lastModified: "2024-04-26",
+      content: <Project project="ezapcompanion" github="https://github.com/armaanpriyadarshan/EZAPCompanion" description="a platform to help prepare for ap calculus" stack={["django", "firebase", "latex", "javascript", "python"]} media="/img/projects/ezap.png" />
     },
     {
       name: "kevin",
-      size: "1.5MB",
-      lastModified: "2023-12-20",
-      content: <Project project="kevin" />
+      size: "44K",
+      lastModified: "2024-05-26",
+      content: <Project project="kevin" github="https://github.com/armaanpriyadarshan/kevin" description="a companion robot for meal settings" stack={["python", "raspberry pi", "embedded electronics", "aws", "openai api"]} media="/img/projects/kevin.jpg" />
     },
     {
       name: "rotation-tracking",
-      size: "2.3MB",
-      lastModified: "2023-12-15",
-      content: <Project project="rotation tracking" />
+      size: "196K",
+      lastModified: "2023-09-11",
+      content: <Project project="rotation tracking" github="https://github.com/armaanpriyadarshan/Rotation-Tracking-OpenCV" description="scripts for tracking the rotation of objects" stack={["python", "opencv"]} media="/img/projects/rotation-tracking.png" />
     },
     {
       name: "ftc",
-      size: "3.1MB",
-      lastModified: "2023-12-10",
-      content: <Project project="ftc" />
+      size: "63M",
+      lastModified: "2023-02-03",
+      content: <Project project="first tech challenge" github="https://github.com/12589-PioneerRobotics/PowerPlay" description="top 40 robots from ftc 2023 powerplay" stack={["kotlin", "android studio", "opencv"]} media="/img/projects/ftc.JPG" />
     },
     {
       name: "drone",
-      size: "2.8MB",
-      lastModified: "2023-12-05",
-      content: <Project project="drone" />
+      size: "56M",
+      lastModified: "2020-06-17",
+      content: <Project project="raspberry pi quadcopter" description="later added voice control and computer vision" stack={["python", "raspberry pi", "embedded electronics", "aws", "alexa", "caffe", "flask"]} media="/img/projects/drone.jpg" />
     },
     {
       name: "multimodal-glasses",
-      size: "2.0MB",
-      lastModified: "2023-11-30",
-      content: <Project project="multimodal glasses" />
+      size: "106K",
+      lastModified: "2022-08-23",
+      content: <Project project="multimodal glasses" github="https://github.com/armaanpriyadarshan/multimodal-glasses" description="vqa and captioning for the visually impaired" stack={["python", "esp32", "pytorch", "transformers", "flask"]} media="/img/projects/glasses.jpg" />
     },
     {
       name: "pill-counting",
       size: "1.7MB",
-      lastModified: "2023-11-25",
-      content: <Project project="pill counting" />
+      lastModified: "2020-06-16",
+      content: <Project project="pill counting" github="https://github.com/armaanpriyadarshan/TensorFlow-2-Lite-Object-Detection-on-the-Raspberry-Pi" description="a pill counting poc with the raspberry pi" stack={["python", "raspberry pi", "tensorflow", "opencv"]} media="/img/projects/pills.png" />
     }
   ];
 
@@ -209,8 +209,8 @@ export default function Home() {
     {
       id: 'cat-skills',
       fileLocation: "~/about",
-      commandText: "cat skills.txt",
-      placeholder: "enter 'cat skills.txt'",
+      commandText: "tree skills",
+      placeholder: "enter 'tree skills'",
       content: (
         <div className="ml-4 mt-4">
           {/* Skills content to be added */}
