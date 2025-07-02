@@ -119,7 +119,7 @@ export default function Home() {
     },
     {
       name: "pill-counting",
-      size: "1.7MB",
+      size: "16M",
       lastModified: "2020-06-16",
       content: <Project project="pill counting" github="https://github.com/armaanpriyadarshan/TensorFlow-2-Lite-Object-Detection-on-the-Raspberry-Pi" description="a pill counting poc with the raspberry pi" stack={["python", "raspberry pi", "tensorflow", "opencv"]} media="/img/projects/pills.png" />
     }
