@@ -209,11 +209,15 @@ export default function Home() {
     {
       id: 'cat-skills',
       fileLocation: "~/about",
-      commandText: "tree skills",
-      placeholder: "enter 'tree skills'",
+      commandText: "cat skills.txt",
+      placeholder: "enter 'cat skills.txt'",
       content: (
         <div className="ml-4 mt-4">
-          {/* Skills content to be added */}
+          <div className="border border-[var(--grey)] p-4 relative">
+            <div className="absolute top-0 left-4 mt-[-12px] bg-background px-2 font-semibold">
+              skills.txt
+            </div>
+          </div>
         </div>
       )
     }
