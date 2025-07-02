@@ -29,7 +29,7 @@ export default function Skills({ skills }) {
                 <Scramble text={`# ${category}`} delay={10} />
               </span>
             </div>
-            <div className="flex items-center mt-1">
+            <div className="flex items-center">
               <span className="w-6 text-right select-none font-mono text-[var(--grey)]">{idx * 3 + 2}</span>
               <span className="inline-block" style={{ width: '1em' }}></span>
               <span className="flex flex-row flex-wrap gap-2">
