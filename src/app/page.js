@@ -10,6 +10,7 @@ import Command from './components/Command';
 import Experience from './components/Experience';
 import FileManager from './components/FileManager';
 import Project from './components/Project';
+import Skills from './components/Skills';
 
 export default function Home() {
   const infoLines = [
@@ -42,6 +43,12 @@ export default function Home() {
       href: "https://www.linkedin.com/in/armaanpriyadarshan/",
     },
   ];
+
+  const skills = {
+    languages: ["python", "java", "c/c++", "c#", "javascript", "typescript", "html", "css", "kotlin", "latex"],
+    frameworks: ["react.js", "node.js", "django", "flask", "angularjs", "spring boot", "tensorflow", "pytorch"],
+    "developer tools": ["unix", "bash", "figma", "aws", "azure", "git", "postman", "jira", "embedded electronics"],
+  };
 
   const projects = [
     {
@@ -117,6 +124,9 @@ export default function Home() {
       content: <Project project="pill counting" github="https://github.com/armaanpriyadarshan/TensorFlow-2-Lite-Object-Detection-on-the-Raspberry-Pi" description="a pill counting poc with the raspberry pi" stack={["python", "raspberry pi", "tensorflow", "opencv"]} media="/img/projects/pills.png" />
     }
   ];
+
+  const [hoveredCategory, setHoveredCategory] = useState(null);
+  const [lastHoveredLine, setLastHoveredLine] = useState(1);
 
   const commands = [
     {
@@ -213,13 +223,15 @@ export default function Home() {
       placeholder: "enter 'cat skills.txt'",
       content: (
         <div className="ml-4 mt-4">
-          <div className="border border-[var(--grey)] p-4 relative">
-            <div className="absolute top-0 left-4 mt-[-12px] bg-background px-2 font-semibold">
-              skills.txt
-            </div>
-          </div>
+          <Skills skills={skills} />
         </div>
       )
+    },
+    {
+      id: 'lf-hobbies',
+      fileLocation: "~/about",
+      commandText: "lf hobbies",
+      placeholder: "enter 'lf hobbies'",
     }
   ];
 
