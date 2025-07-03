@@ -36,10 +36,7 @@ export default function Project({ project, github, description, stack, media }) 
       </div>
       {description && (
         <div className="text-sm font-mono">
-          <Scramble 
-            text={description} 
-            delay={0}
-          />
+          <Scramble text={description} delay={0} />
         </div>
       )}
       {stack && (
@@ -72,7 +69,7 @@ export default function Project({ project, github, description, stack, media }) 
               alt={`${project} media`}
               fill
               style={{ objectFit: 'contain' }}
-              className="rounded"
+              className="rounded]"
               onLoad={handleImageLoad}
             />
           </div>

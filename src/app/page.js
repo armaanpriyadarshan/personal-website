@@ -11,6 +11,7 @@ import Experience from './components/Experience';
 import FileManager from './components/FileManager';
 import Project from './components/Project';
 import Skills from './components/Skills';
+import Hobby from './components/Hobby';
 
 export default function Home() {
   const infoLines = [
@@ -125,6 +126,40 @@ export default function Home() {
     }
   ];
 
+  const hobbies = [
+    {
+      name: "art",
+      size: "2.1G",
+      content: <Hobby hobby="digital & traditional art" description="developing my style through watercolor and procreate" media="/img/art" preview="view gallery" thumbnail="/img/art/thumbnail.jpg" />
+    },
+    {
+      name: "photography",
+      size: "800M",
+      content: <Hobby hobby="natural photography" description="classical and jazz piano" />
+    },
+    {
+      name: "poetry",
+      size: "1.2G",
+      content: <Hobby hobby="poetry" description="road and mountain biking" />
+    },
+    {
+      name: "fiction",
+      size: "600M",
+      lastModified: "2024-03-20",
+      content: <Hobby hobby="fiction" description="fiction, non-fiction, and poetry" />
+    },
+    {
+      name: "pool",
+      size: "600M",
+      content: <Hobby hobby="pool" description="fiction, non-fiction, and poetry" />
+    },
+    {
+      name: "etc",
+      size: "600M",
+      content: <Hobby hobby="etc" description="fiction, non-fiction, and poetry" />
+    }
+  ];
+
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [lastHoveredLine, setLastHoveredLine] = useState(1);
 
@@ -232,6 +267,20 @@ export default function Home() {
       fileLocation: "~/about",
       commandText: "lf hobbies",
       placeholder: "enter 'lf hobbies'",
+      content: (
+        <div className="ml-4 mt-4">
+          <FileManager 
+            directory="hobbies" 
+            subdirectories={hobbies} 
+          />
+        </div>
+      )
+    },
+    {
+      id: 'sl',
+      fileLocation: "~/about",
+      commandText: "sl",
+      placeholder: "enter 'sl'"
     }
   ];
 
@@ -271,7 +320,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center pt-48 pb-12">
+    <main className="min-h-screen flex flex-col items-center pt-36 pb-12">
       <div className="max-w-4xl mx-auto px-6 w-full">
         <div className="flex items-center gap-20">
           {/* Image */}
