@@ -69,7 +69,7 @@ export default function Project({ project, github, description, stack, media }) 
               alt={`${project} media`}
               fill
               style={{ objectFit: 'contain' }}
-              className="rounded]"
+              className="rounded"
               onLoad={handleImageLoad}
             />
           </div>

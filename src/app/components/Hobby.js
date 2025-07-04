@@ -1,9 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import Scramble from './Scramble';
 import Image from 'next/image';
+import GalleryModal from './GalleryModal';
 
-export default function Hobby({ hobby, description, media, preview, thumbnail }) {
+export default function Hobby({ hobby, description, media, text, thumbnail }) {
   const [aspectRatio, setAspectRatio] = useState(1);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   const handleImageLoad = useCallback((e) => {
     const { naturalWidth, naturalHeight } = e.target;
@@ -26,15 +28,17 @@ export default function Hobby({ hobby, description, media, preview, thumbnail })
           <Scramble text={description} delay={0} />
         </div>
       )}
-      {media && preview && (
+      {media && text && (
         <div className="mt-2 text-sm font-mono uppercase">
           <a
             href={media}
-            target="_blank"
-            rel="noopener noreferrer"
             className="underline hover:bg-foreground hover:text-background hover:no-underline"
+            onClick={e => {
+              e.preventDefault();
+              setIsGalleryOpen(true);
+            }}
           >
-            {preview}
+            {text}
           </a>
         </div>
       )}
@@ -52,6 +56,7 @@ export default function Hobby({ hobby, description, media, preview, thumbnail })
           </div>
         </div>
       )}
+      <GalleryModal isOpen={isGalleryOpen} onClose={() => setIsGalleryOpen(false)} media={media} />
     </div>
   );
 } 

@@ -126,11 +126,19 @@ export default function Home() {
     }
   ];
 
+  const art = [
+    "arm.jpg", "autumn.jpg", "balloon.jpg", "bear.jpg", "bike.jpg", "bird.JPG", "boat.JPG", "brimstone.png", "butterfly.jpg", "cabin.jpg", "candle.jpg", "cathedral.jpg", "cosmic_canvas.JPG", "eid.PNG", "grayscal.png", "hero.jpg", "hive_mind.jpg", "inside.jpg", "jerry.jpg", "jonan.png", "knight.png", "me.jpg", "nier.webp", "prismatic_helmet.png", "pumpkin.jpg", "scal.png", "scal_sin_pelo.JPG", "shipwreck.jpg", "statue.jpg", "thumbnail.jpg", "vase.jpg", "yharim.png"
+  ].map(filename => ({
+    src: `/img/art/${filename}`,
+    width: 300,
+    height: 300
+  }));
+
   const hobbies = [
     {
       name: "art",
       size: "2.1G",
-      content: <Hobby hobby="digital & traditional art" description="developing my style through watercolor and procreate" media="/img/art" preview="view gallery" thumbnail="/img/art/thumbnail.jpg" />
+      content: <Hobby hobby="digital & traditional art" description="developing my style through watercolor and procreate" media={art} text="view gallery" thumbnail="/img/art/thumbnail.jpg" />
     },
     {
       name: "photography",
