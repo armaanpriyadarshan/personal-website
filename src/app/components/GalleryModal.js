@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Gallery } from './react-grid-gallery';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function GalleryModal({ isOpen, onClose, media }) {
@@ -41,7 +40,6 @@ export default function GalleryModal({ isOpen, onClose, media }) {
               </button>
             </div>
           </motion.div>
-          <Gallery images={media} />
         </motion.div>
       )}
     </AnimatePresence>
