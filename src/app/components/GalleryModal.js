@@ -35,12 +35,12 @@ export default function GalleryModal({ isOpen, onClose, media }) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center"
+          className="fixed inset-0 z-50 flex justify-center overflow-y-auto"
+          style={{ alignItems: 'flex-start', backgroundColor: 'rgba(15, 18, 18, 0.6)' }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          style={{ backgroundColor: 'rgba(15, 18, 18, 0.6)' }}
           onClick={onClose}
         >
           <motion.div
@@ -51,7 +51,7 @@ export default function GalleryModal({ isOpen, onClose, media }) {
               borderWidth: { duration: 0.5, ease: 'easeOut' },
               opacity: { duration: 0.3 }
             }}
-            className="border border-[var(--grey)] p-6 relative bg-background flex flex-col w-[80vw]"
+            className="border border-[var(--grey)] p-6 relative bg-background flex flex-col w-[80vw] mt-12"
             onClick={e => e.stopPropagation()}
           >
             {/* Header */}
@@ -66,7 +66,7 @@ export default function GalleryModal({ isOpen, onClose, media }) {
                 [x]
               </button>
             </div>
-            <Gallery images={media} enableImageSelection={false} onClick={handleImageClick} />
+            <Gallery images={media} rowHeight={240} enableImageSelection={false} onClick={handleImageClick} />
             {/* Expanded image overlay */}
             {expandedImage && (
               <motion.div

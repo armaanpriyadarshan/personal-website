@@ -321,16 +321,164 @@ export default function Home() {
     },
   ];
 
+  const photography = [
+    {
+      src: "/img/photography/IMG_0804.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0805.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0806.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0807.JPG",
+      width: 2592,
+      height: 1456,
+    },
+    {
+      src: "/img/photography/IMG_0808.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0809.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0810.JPG",
+      width: 2511,
+      height: 1674,
+    },
+    {
+      src: "/img/photography/IMG_0811.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0813.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0814.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0815.JPG",
+      width: 2592,
+      height: 1456,
+    },
+    {
+      src: "/img/photography/IMG_0817.JPG",
+      width: 2592,
+      height: 1456,
+    },
+    {
+      src: "/img/photography/IMG_0819.JPG",
+      width: 2592,
+      height: 1456,
+    },
+    {
+      src: "/img/photography/IMG_0820.JPG",
+      width: 2592,
+      height: 1456,
+    },
+    {
+      src: "/img/photography/IMG_0821.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0822.JPG",
+      width: 2592,
+      height: 1469,
+    },
+    {
+      src: "/img/photography/IMG_0823.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0824.JPG",
+      width: 2316,
+      height: 1544,
+    },
+    {
+      src: "/img/photography/IMG_0825.JPG",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "/img/photography/IMG_0826.JPG",
+      width: 2592,
+      height: 1456,
+    },
+    {
+      src: "/img/photography/IMG_0827.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0828.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0829.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0830.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0831.JPG",
+      width: 1920,
+      height: 1080,
+    },
+    {
+      src: "/img/photography/IMG_0832.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/IMG_0833.JPG",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/cachedImage.png",
+      width: 2592,
+      height: 1728,
+    },
+    {
+      src: "/img/photography/cachedImage2.png",
+      width: 2592,
+      height: 1728,
+    },
+  ]
+
   const hobbies = [
     {
       name: "art",
-      size: "2.1G",
+      size: "44M",
       content: <Hobby hobby="digital & traditional art" description="developing my style through watercolor and procreate" media={art} text="view gallery" thumbnail="/img/art/thumbnail.jpg" />
     },
     {
       name: "photography",
-      size: "800M",
-      content: <Hobby hobby="natural photography" description="classical and jazz piano" />
+      size: "43M",
+      content: <Hobby hobby="natural photography" description="shot on a canon eos rebel t3i" media={photography} text="view gallery" thumbnail="/img/photography/IMG_0804.JPG" />
     },
     {
       name: "poetry",
