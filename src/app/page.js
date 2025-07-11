@@ -473,20 +473,20 @@ export default function Home() {
     {
       name: "art",
       size: "44M",
-      content: <Hobby hobby="digital & traditional art" description="developing my style through watercolor and procreate" media={art} text="view gallery" thumbnail="/img/art/thumbnail.jpg" />
+      content: <Hobby hobby="digital & traditional art" description="developing my style through watercolor and procreate" media={art} thumbnail="/img/art/thumbnail.jpg" />
     },
     {
       name: "photography",
       size: "43M",
-      content: <Hobby hobby="natural photography" description="shot on a canon eos rebel t3i" media={photography} text="view gallery" thumbnail="/img/photography/IMG_0804.JPG" />
+      content: <Hobby hobby="natural photography" description="shot on a canon eos rebel t3i" media={photography} thumbnail="/img/photography/IMG_0804.JPG" />
     },
     {
       name: "poetry",
       size: "1.2G",
-      content: <Hobby hobby="poetry" description="road and mountain biking" />
+      content: <Hobby hobby="poetry" description="embracing the mundane with imagery, metaphor, and whimsy" text="read a poem" thumbnail="/img/poetry.png" />
     },
     {
-      name: "fiction",
+      name: "media",
       size: "600M",
       lastModified: "2024-03-20",
       content: <Hobby hobby="fiction" description="fiction, non-fiction, and poetry" />
@@ -499,7 +499,7 @@ export default function Home() {
     {
       name: "etc",
       size: "600M",
-      content: <Hobby hobby="etc" description="fiction, non-fiction, and poetry" />
+      content: <Hobby hobby="etc" description="my other hobbies include biking, terraria, and tetris" />
     }
   ];
 

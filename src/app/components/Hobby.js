@@ -1,11 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import Scramble from './Scramble';
 import Image from 'next/image';
+import Modal from './Modal';
 import GalleryModal from './GalleryModal';
+import PoetryModal from './PoetryModal';
 
-export default function Hobby({ hobby, description, media, text, thumbnail }) {
+export default function Hobby({ hobby, description, media, thumbnail, poem }) {
   const [aspectRatio, setAspectRatio] = useState(1);
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [modal, setModal] = useState({ type: null, data: null });
 
   const handleImageLoad = useCallback((e) => {
     const { naturalWidth, naturalHeight } = e.target;
@@ -13,6 +15,18 @@ export default function Hobby({ hobby, description, media, text, thumbnail }) {
       setAspectRatio(naturalWidth / naturalHeight);
     }
   }, []);
+
+  const openGallery = (images) => {
+    setModal({ type: 'gallery', data: images });
+  };
+
+  const openPoem = () => {
+    setModal({ type: 'poem', data: null });
+  };
+
+  const closeModal = () => {
+    setModal({ type: null, data: null });
+  };
 
   return (
     <div className="pr-4 h-80 flex flex-col">
@@ -28,18 +42,27 @@ export default function Hobby({ hobby, description, media, text, thumbnail }) {
           <Scramble text={description} delay={0} />
         </div>
       )}
-      {media && text && (
-        <div className="mt-2 text-sm font-mono uppercase">
+      {media ? (
+        <div className="mt-2 text-sm font-mono">
           <a
-            href={media}
-            className="underline hover:bg-foreground hover:text-background hover:no-underline"
+            href={typeof media === 'string' ? media : '#'}
+            className="underline hover:bg-foreground hover:text-background hover:no-underline uppercase"
             onClick={e => {
               e.preventDefault();
-              setIsGalleryOpen(true);
+              openGallery(media);
             }}
           >
-            {text}
+            view gallery
           </a>
+        </div>
+      ) : (
+        <div className="mt-2 text-sm font-mono">
+          <button
+            className="underline hover:bg-foreground hover:text-background hover:no-underline uppercase"
+            onClick={openPoem}
+          >
+            read a poem
+          </button>
         </div>
       )}
       {thumbnail && (
@@ -56,7 +79,10 @@ export default function Hobby({ hobby, description, media, text, thumbnail }) {
           </div>
         </div>
       )}
-      <GalleryModal isOpen={isGalleryOpen} onClose={() => setIsGalleryOpen(false)} media={media} />
+      <Modal isOpen={!!modal.type} onClose={closeModal}>
+        {modal.type === 'gallery' && <GalleryModal onClose={closeModal} media={modal.data} />}
+        {modal.type === 'poem' && <PoetryModal onClose={closeModal} />}
+      </Modal>
     </div>
   );
 } 
