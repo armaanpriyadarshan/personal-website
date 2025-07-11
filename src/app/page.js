@@ -127,12 +127,199 @@ export default function Home() {
   ];
 
   const art = [
-    "arm.jpg", "autumn.jpg", "balloon.jpg", "bear.jpg", "bike.jpg", "bird.JPG", "boat.JPG", "brimstone.png", "butterfly.jpg", "cabin.jpg", "candle.jpg", "cathedral.jpg", "cosmic_canvas.JPG", "eid.PNG", "grayscal.png", "hero.jpg", "hive_mind.jpg", "inside.jpg", "jerry.jpg", "jonan.png", "knight.png", "me.jpg", "nier.webp", "prismatic_helmet.png", "pumpkin.jpg", "scal.png", "scal_sin_pelo.JPG", "shipwreck.jpg", "statue.jpg", "thumbnail.jpg", "vase.jpg", "yharim.png"
-  ].map(filename => ({
-    src: `/img/art/${filename}`,
-    width: 300,
-    height: 300
-  }));
+    {
+      src: "/img/art/arm.jpg",
+      width: 2941,
+      height: 3656,
+      caption: "reaching to become more"
+    },
+    {
+      src: "/img/art/autumn.jpg",
+      width: 2478,
+      height: 3278,
+      caption: "a collage of autumn-themed things"
+    },
+    {
+      src: "/img/art/balloon.jpg",
+      width: 2657,
+      height: 3543,
+      caption: "a balloon not content with earth"
+    },
+    {
+      src: "/img/art/bear.jpg",
+      width: 4222,
+      height: 3745,
+      caption: "my least favorite mascot"
+    },
+    {
+      src: "/img/art/bike.jpg",
+      width: 3582,
+      height: 1479,
+      caption: "it's my bike!"
+    },
+    {
+      src: "/img/art/bird.JPG",
+      width: 2761,
+      height: 2033,
+      caption: "a cool bird i saw in a tree"
+    },
+    {
+      src: "/img/art/boat.JPG",
+      width: 1544,
+      height: 2016,
+      caption: "a stormy seascape"
+    },
+    {
+      src: "/img/art/brimstone.png",
+      width: 1452,
+      height: 1598,
+      caption: "brimstone elemental from terraria"
+    },
+    {
+      src: "/img/art/butterfly.jpg",
+      width: 4032,
+      height: 3024,
+      caption: "a resting monarch butterfly"
+    },
+    {
+      src: "/img/art/cabin.jpg",
+      width: 4032,
+      height: 3024,
+      caption: "winter cabin during the festive season"
+    },
+    {
+      src: "/img/art/candle.jpg",
+      width: 4032,
+      height: 3024,
+      caption: "a candle's flickering flame"
+    },
+    {
+      src: "/img/art/cathedral.jpg",
+      width: 3520,
+      height: 4694,
+      caption: "a random church from hopedale, ma"
+    },
+    {
+      src: "/img/art/cosmic_canvas.JPG",
+      width: 3601,
+      height: 2400,
+      caption: "a cosmic canvas"
+    },
+    {
+      src: "/img/art/eid.PNG",
+      width: 1359,
+      height: 763,
+      caption: "eidolon wyrm from terraria"
+    },
+    {
+      src: "/img/art/grayscal.png",
+      width: 1850,
+      height: 1802,
+      caption: "greyscale without the e"
+    },
+    {
+      src: "/img/art/hero.jpg",
+      width: 1201,
+      height: 1294,
+      caption: "an original character"
+    },
+    {
+      src: "/img/art/hive_mind.jpg",
+      width: 2967,
+      height: 3956,
+      caption: "an original character"
+    },
+    {
+      src: "/img/art/inside.jpg",
+      width: 2451,
+      height: 3268,
+      caption: "a light inside"
+    },
+    {
+      src: "/img/art/jerry.jpg",
+      width: 4405,
+      height: 3461,
+      caption: "a peacock named jerry"
+    },
+    {
+      src: "/img/art/jonan.png",
+      width: 2350,
+      height: 1920,
+      caption: "an original character"
+    },
+    {
+      src: "/img/art/knight.png",
+      width: 2364,
+      height: 2160,
+      caption: "an original character"
+    },
+    {
+      src: "/img/art/me.jpg",
+      width: 3856,
+      height: 5008,
+      caption: "me holding a spyglass"
+    },
+    {
+      src: "/img/art/nier.webp",
+      width: 640,
+      height: 887,
+      caption: "2b getting bailed out"
+    },
+    {
+      src: "/img/art/prismatic_helmet.png",
+      width: 2160,
+      height: 2160,
+      caption: "an original character"
+    },
+    {
+      src: "/img/art/pumpkin.jpg",
+      width: 5712,
+      height: 4284,
+      caption: "a pumpkin from nearby"
+    },
+    {
+      src: "/img/art/scal.png",
+      width: 1552,
+      height: 1794,
+      caption: "supreme calamitas from terraria"
+    },
+    {
+      src: "/img/art/scal_sin_pelo.JPG",
+      width: 600,
+      height: 450,
+      caption: "supreme calamitas from terraria"
+    },
+    {
+      src: "/img/art/shipwreck.jpg",
+      width: 2285,
+      height: 3070,
+      caption: "the shipwreck ~ hubert robert"
+    },
+    {
+      src: "/img/art/statue.jpg",
+      width: 3483,
+      height: 4550,
+      caption: "a roman statue from the worcester art museum"
+    },
+    {
+      src: "/img/art/thumbnail.jpg",
+      width: 3163,
+      height: 2513,
+      caption: "autumn's doldrums"
+    },
+    {
+      src: "/img/art/vase.jpg",
+      width: 2205,
+      height: 2901,
+      caption: "a vase from the table"
+    },
+    {
+      src: "/img/art/yharim.png",
+      width: 1554,
+      height: 1906,
+      caption: "yharim from terraria"
+    },
+  ];
 
   const hobbies = [
     {

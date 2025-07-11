@@ -1,9 +1,36 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Gallery } from './react-grid-gallery/src';
+import Image from 'next/image';
 
 export default function GalleryModal({ isOpen, onClose, media }) {
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isOpen]);
+
+  // State for expanded image
+  const [expandedImage, setExpandedImage] = useState(null);
+
+  // Handler to expand image
+  const handleImageClick = (index, image, event) => {
+    setExpandedImage(image);
+  };
+
+  // Handler to close expanded image
+  const handleCloseExpanded = (e) => {
+    e.stopPropagation();
+    setExpandedImage(null);
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -24,7 +51,7 @@ export default function GalleryModal({ isOpen, onClose, media }) {
               borderWidth: { duration: 0.5, ease: 'easeOut' },
               opacity: { duration: 0.3 }
             }}
-            className="border border-[var(--grey)] p-6 relative bg-background flex flex-col w-[80vw] h-[80vh]"
+            className="border border-[var(--grey)] p-6 relative bg-background flex flex-col w-[80vw]"
             onClick={e => e.stopPropagation()}
           >
             {/* Header */}
@@ -39,6 +66,36 @@ export default function GalleryModal({ isOpen, onClose, media }) {
                 [x]
               </button>
             </div>
+            <Gallery images={media} enableImageSelection={false} onClick={handleImageClick} />
+            {/* Expanded image overlay */}
+            {expandedImage && (
+              <motion.div
+                className="fixed inset-0 z-60 flex items-center justify-center bg-black/90 w-screen h-screen overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={handleCloseExpanded}
+              >
+                <div className="w-full h-full flex items-center justify-center">
+                <Image
+                  src={expandedImage.src}
+                  alt={expandedImage.alt || 'Expanded'}
+                  fill
+                  className="object-contain rounded shadow-lg"
+                  unoptimized
+                  priority
+                />
+                  <button
+                    className="absolute top-2 right-2 text-xl font-mono hover:text-[var(--red)] focus:outline-none"
+                    onClick={handleCloseExpanded}
+                    aria-label="Close expanded image"
+                  >
+                    [x]
+                  </button>
+                </div>
+              </motion.div>
+            )}
           </motion.div>
         </motion.div>
       )}
