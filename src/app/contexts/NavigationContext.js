@@ -5,7 +5,7 @@ import { createContext, useContext, useState } from 'react';
 const NavigationContext = createContext();
 
 export function NavigationProvider({ children }) {
-  const [unlocked, setUnlocked] = useState(['whoami']);
+  const [unlocked, setUnlocked] = useState([]);
 
   const unlock = (item) => {
     setUnlocked((prev) => prev.includes(item) ? prev : [...prev, item]);
