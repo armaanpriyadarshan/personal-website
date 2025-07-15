@@ -5,7 +5,7 @@ export default function Video() {
     useEffect(() => {
         const timeout = setTimeout(() => {
             window.scrollTo({ top: document.body.scrollHeight});
-        }, 50);
+        }, 100);
         return () => clearTimeout(timeout);
     }, []);
     return (
