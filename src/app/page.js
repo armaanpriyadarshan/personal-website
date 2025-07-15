@@ -533,21 +533,20 @@ export default function Home() {
       content: <Hobby hobby="etc" description="my other hobbies include biking, terraria, and tetris" thumbnail="/img/tetris.png" modalType="none" />
     }
   ];
-
-  const [hoveredCategory, setHoveredCategory] = useState(null);
-  const [lastHoveredLine, setLastHoveredLine] = useState(1);
-
+  
   const commands = [
     {
       id: 'whoami',
       idToUnlock: 'whoami',
       fileLocation: "~/about",
       commandText: "whoami",
-      placeholder: "enter 'whoami'",
+      placeholder: "whoami",
       content: (
         <div className="ml-4">
-          <p className="font-mono">my name is armaan priyadarshan, and i&apos;m a student at dartmouth college pursuing computer science, mathematics, and potentially economics. my interests center around computational problem solving, especially in the field of artificial intelligence. i&apos;m currently a software engineer intern at fidelity investments.</p>
-          <p className="mt-2 font-mono">
+          <p className="font-mono text-sm md:text-base">
+            my name is armaan priyadarshan, and i&apos;m a student at dartmouth college pursuing computer science, mathematics, and potentially economics. my interests center around computational problem solving, especially in the field of artificial intelligence. i&apos;m currently a software engineer intern at fidelity investments.
+          </p>
+          <p className="mt-2 font-mono text-sm md:text-base">
             view my <a 
               href="/resume.pdf" 
               target="_blank" 
@@ -567,7 +566,7 @@ export default function Home() {
       idToUnlock: 'experiences',
       fileLocation: "~/about",
       commandText: "ls experiences",
-      placeholder: "enter 'ls experiences'",
+      placeholder: "ls experiences",
       content: (
         <div className="ml-4 mt-4">
           {[
@@ -618,7 +617,7 @@ export default function Home() {
       idToUnlock: 'projects',
       fileLocation: "~/about",
       commandText: "lf projects",
-      placeholder: "enter 'lf projects'",
+      placeholder: "lf projects",
       content: (
         <div className="ml-4 mt-4">
           <FileManager 
@@ -633,7 +632,7 @@ export default function Home() {
       idToUnlock: 'skills',
       fileLocation: "~/about",
       commandText: "cat skills.txt",
-      placeholder: "enter 'cat skills.txt'",
+      placeholder: "cat skills.txt",
       content: (
         <div className="ml-4 mt-4">
           <Skills skills={skills} />
@@ -645,7 +644,7 @@ export default function Home() {
       idToUnlock: 'hobbies',
       fileLocation: "~/about",
       commandText: "lf hobbies",
-      placeholder: "enter 'lf hobbies'",
+      placeholder: "lf hobbies",
       content: (
         <div className="ml-4 mt-4">
           <FileManager 
@@ -659,7 +658,7 @@ export default function Home() {
       id: 'sl',
       fileLocation: "~/about",
       commandText: "sl",
-      placeholder: "enter 'sl'",
+      placeholder: "sl",
       content: <Video />
     }
   ];
@@ -713,11 +712,11 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen flex flex-col items-center pt-36 pb-12">
+      <main className="min-h-screen flex flex-col items-center pt-24 md:pt-36 pb-12">
         <div className="max-w-4xl mx-auto px-6 w-full">
-          <div className="flex items-center gap-20">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-20">
             {/* Image */}
-            <div className="w-[300px] h-[300px] relative flex items-center justify-center">
+            <div className="w-40 h-40 md:w-[300px] md:h-[300px] relative flex items-center justify-center mb-6 md:mb-0">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -727,42 +726,42 @@ export default function Home() {
                 <Image
                   src="/img/hero.jpg"
                   alt="Hero"
-                  width={250}
-                  height={250}
-                  style={{ objectFit: 'cover', borderRadius: '50%' }}
+                  width={160}
+                  height={160}
+                  className="md:w-[250px] md:h-[250px] w-40 h-40 rounded-full object-cover"
                   quality={100}
                 />
               </motion.div>
             </div>
 
             {/* Text + Brackets + Circles */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center md:items-start w-full md:w-auto">
               {/* Name */}
-              <div className="h-[32px] w-full pl-12 text-xl font-bold mb-2 font-mono">
+              <div className="h-8 md:h-[32px] w-full md:pl-12 text-lg md:text-xl font-bold mb-2 font-mono text-center md:text-left">
                 <Scramble text="ARMAAN PRIYADARSHAN" delay={400} onDone={nextLine} />
               </div>
 
               {/* Bracket Box */}
               <motion.div
-                className="relative px-12 py-4 border border-transparent w-[480px] min-h-[180px]"
+                className="relative px-4 md:px-12 py-4 border border-transparent w-full md:w-[480px] min-h-[120px] md:min-h-[180px] flex flex-col items-center"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 0.4, duration: 0.3 }}
                 style={{ transformOrigin: 'center' }}
               >
                 {/* Brackets */}
-                <div className="absolute top-0 left-4 h-2 border-l border-white" />
-                <div className="absolute top-0 right-4 h-2 border-r border-white" />
-                <div className="absolute top-0 left-4 right-4 border-t border-white" />
-                <div className="absolute bottom-0 left-4 h-2 border-l border-white" />
-                <div className="absolute bottom-0 right-4 h-2 border-r border-white" />
-                <div className="absolute bottom-0 left-4 right-4 border-b border-white" />
+                <div className="absolute top-0 left-2 md:left-4 h-2 border-l border-white" />
+                <div className="absolute top-0 right-2 md:right-4 h-2 border-r border-white" />
+                <div className="absolute top-0 left-2 md:left-4 right-2 md:right-4 border-t border-white" />
+                <div className="absolute bottom-0 left-2 md:left-4 h-2 border-l border-white" />
+                <div className="absolute bottom-0 right-2 md:right-4 h-2 border-r border-white" />
+                <div className="absolute bottom-0 left-2 md:left-4 right-2 md:right-4 border-b border-white" />
 
                 {/* Info lines */}
                 {infoLines.map((line, i) => (
-                  <div key={i} className="h-[32px] flex items-center">
+                  <div key={i} className="h-8 md:h-[32px] flex items-center justify-center md:justify-start w-full">
                     {i === lineIndex ? (
-                      <div className="flex items-center gap-2 font-bold font-mono">
+                      <div className="flex items-center gap-2 font-bold font-mono text-sm md:text-base text-center md:text-left w-full">
                         <motion.div
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
@@ -794,7 +793,7 @@ export default function Home() {
                         )}
                       </div>
                     ) : i < lineIndex ? (
-                      <div className="flex items-center gap-2 font-bold font-mono">
+                      <div className="flex items-center gap-2 font-bold font-mono text-sm md:text-base text-center md:text-left w-full">
                         {line.icon}
                         <span>:</span>
                         {line.href ? (
@@ -811,19 +810,19 @@ export default function Home() {
                         )}
                       </div>
                     ) : (
-                      <div className="h-[24px]" />
+                      <div className="h-6 md:h-[24px]" />
                     )}
                   </div>
                 ))}
               </motion.div>
 
               {/* Centered Circles Under Bracket Box */}
-              <div className="mt-6 h-6 flex justify-center w-[480px]">
-                <div className="flex gap-4">
+              <div className="mt-4 md:mt-6 h-4 md:h-6 flex justify-center w-full md:w-[480px]">
+                <div className="flex gap-2 md:gap-4">
                   {infoLines.map((line, i) => (
                     <motion.div
                       key={i}
-                      className={`w-4 h-4 rounded-full ${line.color}`}
+                      className={`w-3 h-3 md:w-4 md:h-4 rounded-full ${line.color}`}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: i <= lineIndex ? 1 : 0 }}
                       transition={{ duration: 0.4 }}

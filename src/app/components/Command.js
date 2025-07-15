@@ -72,7 +72,7 @@ export default function Command({ fileLocation, commandText, placeholder, childr
     <div className="flex flex-col relative" ref={ref}>
       <div className="text-left w-full">
         <div
-          className="text-lg md:text-xl font-mono px-4 rounded select-none font-semibold"
+          className="text-base md:text-xl font-mono px-4 rounded select-none font-semibold"
           style={{ color: 'var(--lightBlue)', letterSpacing: '0.03em' }}
         >
           {shouldScramble ? (
@@ -82,7 +82,7 @@ export default function Command({ fileLocation, commandText, placeholder, childr
           )}
         </div>
         <div
-          className="text-lg md:text-xl font-mono px-4 pt-1 rounded select-none flex items-center"
+          className="text-base md:text-xl font-mono px-4 pt-1 rounded select-none flex items-center"
           style={{ letterSpacing: '0.03em' }}
         >
           [
@@ -116,7 +116,7 @@ export default function Command({ fileLocation, commandText, placeholder, childr
                 value={input}
                 onChange={handleInput}
                 onKeyDown={handleKeyDown}
-                className="bg-transparent outline-none border-none font-mono text-inherit text-lg md:text-xl w-full"
+                className="bg-transparent outline-none border-none font-mono text-inherit text-base md:text-xl w-full"
                 style={{
                   color: 'transparent',
                   minWidth: '6ch',
