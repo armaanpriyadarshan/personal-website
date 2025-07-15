@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, MouseEvent } from "react";
 import { CheckButton } from "./CheckButton";
 import { ImageExtended, ImageProps } from "./types";
@@ -15,7 +16,7 @@ export const Image = <T extends ImageExtended>({
   index,
   onSelect,
   onClick,
-}: ImageProps<T>): JSX.Element => {
+}: ImageProps<T>): React.JSX.Element => {
   const styleContext = { item };
 
   const [hover, setHover] = useState(false);
