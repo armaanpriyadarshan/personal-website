@@ -13,8 +13,11 @@ import Project from './components/Project';
 import Skills from './components/Skills';
 import Hobby from './components/Hobby';
 import Video from './components/Video';
+import Navigation from './components/Navigation';
+import { useNavigation } from './contexts/NavigationContext';
 
 export default function Home() {
+  const { unlock } = useNavigation();
   const infoLines = [
     {
       icon: <IoSchool className="text-[var(--red)]" />,
@@ -537,6 +540,7 @@ export default function Home() {
   const commands = [
     {
       id: 'whoami',
+      idToUnlock: 'whoami',
       fileLocation: "~/about",
       commandText: "whoami",
       placeholder: "enter 'whoami'",
@@ -556,10 +560,11 @@ export default function Home() {
             </a>
           </p>
         </div>
-      )
+      ),
     },
     {
       id: 'cd-experiences',
+      idToUnlock: 'experiences',
       fileLocation: "~/about",
       commandText: "ls experiences",
       placeholder: "enter 'ls experiences'",
@@ -606,10 +611,11 @@ export default function Home() {
             />
           ))}
         </div>
-      )
+      ),
     },
     {
       id: 'lf-projects',
+      idToUnlock: 'projects',
       fileLocation: "~/about",
       commandText: "lf projects",
       placeholder: "enter 'lf projects'",
@@ -620,10 +626,11 @@ export default function Home() {
             subdirectories={projects} 
           />
         </div>
-      )
+      ),
     },
     {
       id: 'cat-skills',
+      idToUnlock: 'skills',
       fileLocation: "~/about",
       commandText: "cat skills.txt",
       placeholder: "enter 'cat skills.txt'",
@@ -631,10 +638,11 @@ export default function Home() {
         <div className="ml-4 mt-4">
           <Skills skills={skills} />
         </div>
-      )
+      ),
     },
     {
       id: 'lf-hobbies',
+      idToUnlock: 'hobbies',
       fileLocation: "~/about",
       commandText: "lf hobbies",
       placeholder: "enter 'lf hobbies'",
@@ -645,7 +653,7 @@ export default function Home() {
             subdirectories={hobbies} 
           />
         </div>
-      )
+      ),
     },
     {
       id: 'sl',
@@ -655,6 +663,14 @@ export default function Home() {
       content: <Video />
     }
   ];
+
+  const sectionIds = {
+    whoami: 'section-whoami',
+    experiences: 'section-experiences',
+    projects: 'section-projects',
+    skills: 'section-skills',
+    hobbies: 'section-hobbies',
+  };
 
   const [lineIndex, setLineIndex] = useState(-1);
   const [completedCommands, setCompletedCommands] = useState(new Set());
@@ -676,13 +692,16 @@ export default function Home() {
       if (!isVisible) return null;
       
       return (
-        <div key={command.id} className={index === 0 ? "mt-20" : "mt-12"}>
+        <div key={command.id} className={index === 0 ? "mt-20" : "mt-12"} id={sectionIds[command.idToUnlock] || undefined}>
           <Command 
             fileLocation={command.fileLocation}
             commandText={command.commandText}
             placeholder={command.placeholder}
-            onComplete={() => handleCommandComplete(command.id)}
             shouldScramble={index === 0}
+            onComplete={() => {
+              unlock(command.idToUnlock);
+              handleCommandComplete(command.id);
+            }}
           >
             {command.content}
           </Command>
@@ -692,128 +711,131 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center pt-36 pb-12">
-      <div className="max-w-4xl mx-auto px-6 w-full">
-        <div className="flex items-center gap-20">
-          {/* Image */}
-          <div className="w-[300px] h-[300px] relative flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.4 }}
-              className="w-full h-full flex items-center justify-center"
-            >
-              <Image
-                src="/img/hero.jpg"
-                alt="Hero"
-                width={250}
-                height={250}
-                style={{ objectFit: 'cover', borderRadius: '50%' }}
-                quality={100}
-              />
-            </motion.div>
-          </div>
-
-          {/* Text + Brackets + Circles */}
-          <div className="flex flex-col items-center">
-            {/* Name */}
-            <div className="h-[32px] w-full pl-12 text-xl font-bold mb-2 font-mono">
-              <Scramble text="ARMAAN PRIYADARSHAN" delay={400} onDone={nextLine} />
+    <>
+      <Navigation />
+      <main className="min-h-screen flex flex-col items-center pt-36 pb-12">
+        <div className="max-w-4xl mx-auto px-6 w-full">
+          <div className="flex items-center gap-20">
+            {/* Image */}
+            <div className="w-[300px] h-[300px] relative flex items-center justify-center">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.4 }}
+                className="w-full h-full flex items-center justify-center"
+              >
+                <Image
+                  src="/img/hero.jpg"
+                  alt="Hero"
+                  width={250}
+                  height={250}
+                  style={{ objectFit: 'cover', borderRadius: '50%' }}
+                  quality={100}
+                />
+              </motion.div>
             </div>
 
-            {/* Bracket Box */}
-            <motion.div
-              className="relative px-12 py-4 border border-transparent w-[480px] min-h-[180px]"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.4, duration: 0.3 }}
-              style={{ transformOrigin: 'center' }}
-            >
-              {/* Brackets */}
-              <div className="absolute top-0 left-4 h-2 border-l border-white" />
-              <div className="absolute top-0 right-4 h-2 border-r border-white" />
-              <div className="absolute top-0 left-4 right-4 border-t border-white" />
-              <div className="absolute bottom-0 left-4 h-2 border-l border-white" />
-              <div className="absolute bottom-0 right-4 h-2 border-r border-white" />
-              <div className="absolute bottom-0 left-4 right-4 border-b border-white" />
+            {/* Text + Brackets + Circles */}
+            <div className="flex flex-col items-center">
+              {/* Name */}
+              <div className="h-[32px] w-full pl-12 text-xl font-bold mb-2 font-mono">
+                <Scramble text="ARMAAN PRIYADARSHAN" delay={400} onDone={nextLine} />
+              </div>
 
-              {/* Info lines */}
-              {infoLines.map((line, i) => (
-                <div key={i} className="h-[32px] flex items-center">
-                  {i === lineIndex ? (
-                    <div className="flex items-center gap-2 font-bold font-mono">
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                        className="flex items-center gap-2"
-                      >
-                        {line.icon}
-                        <span>:</span>
-                      </motion.div>
-                      {line.href ? (
-                        <a
-                          href={line.href}
-                          className="hover:bg-foreground hover:text-background"
-                          target="_blank"
-                          rel="noopener noreferrer"
+              {/* Bracket Box */}
+              <motion.div
+                className="relative px-12 py-4 border border-transparent w-[480px] min-h-[180px]"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 0.4, duration: 0.3 }}
+                style={{ transformOrigin: 'center' }}
+              >
+                {/* Brackets */}
+                <div className="absolute top-0 left-4 h-2 border-l border-white" />
+                <div className="absolute top-0 right-4 h-2 border-r border-white" />
+                <div className="absolute top-0 left-4 right-4 border-t border-white" />
+                <div className="absolute bottom-0 left-4 h-2 border-l border-white" />
+                <div className="absolute bottom-0 right-4 h-2 border-r border-white" />
+                <div className="absolute bottom-0 left-4 right-4 border-b border-white" />
+
+                {/* Info lines */}
+                {infoLines.map((line, i) => (
+                  <div key={i} className="h-[32px] flex items-center">
+                    {i === lineIndex ? (
+                      <div className="flex items-center gap-2 font-bold font-mono">
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                          className="flex items-center gap-2"
                         >
+                          {line.icon}
+                          <span>:</span>
+                        </motion.div>
+                        {line.href ? (
+                          <a
+                            href={line.href}
+                            className="hover:bg-foreground hover:text-background"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Scramble
+                              text={line.text}
+                              delay={150}
+                              onDone={nextLine}
+                            />
+                          </a>
+                        ) : (
                           <Scramble
                             text={line.text}
                             delay={150}
                             onDone={nextLine}
                           />
-                        </a>
-                      ) : (
-                        <Scramble
-                          text={line.text}
-                          delay={150}
-                          onDone={nextLine}
-                        />
-                      )}
-                    </div>
-                  ) : i < lineIndex ? (
-                    <div className="flex items-center gap-2 font-bold font-mono">
-                      {line.icon}
-                      <span>:</span>
-                      {line.href ? (
-                        <a
-                          href={line.href}
-                          className="hover:bg-foreground hover:text-background"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {line.text}
-                        </a>
-                      ) : (
-                        line.text
-                      )}
-                    </div>
-                  ) : (
-                    <div className="h-[24px]" />
-                  )}
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Centered Circles Under Bracket Box */}
-            <div className="mt-6 h-6 flex justify-center w-[480px]">
-              <div className="flex gap-4">
-                {infoLines.map((line, i) => (
-                  <motion.div
-                    key={i}
-                    className={`w-4 h-4 rounded-full ${line.color}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: i <= lineIndex ? 1 : 0 }}
-                    transition={{ duration: 0.4 }}
-                  />
+                        )}
+                      </div>
+                    ) : i < lineIndex ? (
+                      <div className="flex items-center gap-2 font-bold font-mono">
+                        {line.icon}
+                        <span>:</span>
+                        {line.href ? (
+                          <a
+                            href={line.href}
+                            className="hover:bg-foreground hover:text-background"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {line.text}
+                          </a>
+                        ) : (
+                          line.text
+                        )}
+                      </div>
+                    ) : (
+                      <div className="h-[24px]" />
+                    )}
+                  </div>
                 ))}
+              </motion.div>
+
+              {/* Centered Circles Under Bracket Box */}
+              <div className="mt-6 h-6 flex justify-center w-[480px]">
+                <div className="flex gap-4">
+                  {infoLines.map((line, i) => (
+                    <motion.div
+                      key={i}
+                      className={`w-4 h-4 rounded-full ${line.color}`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: i <= lineIndex ? 1 : 0 }}
+                      transition={{ duration: 0.4 }}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
+          {renderCommands()}
         </div>
-        {renderCommands()}
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
