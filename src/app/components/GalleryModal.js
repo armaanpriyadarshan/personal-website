@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Gallery } from './react-grid-gallery/src';
+import { Gallery } from './react-grid-gallery';
 import Image from 'next/image';
 
 export default function GalleryModal({ onClose, media }) {
