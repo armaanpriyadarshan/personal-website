@@ -124,7 +124,7 @@ export default function Navigation() {
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ x: -300, opacity: 0 }}
                             transition={{ type: 'tween', duration: 0.35 }}
-                            className="fixed left-0 top-0 h-screen w-64 bg-[var(--background)] z-[99] flex flex-col items-center shadow-lg pt-24 md:pt-36"
+                            className="fixed left-0 top-0 h-screen bg-[var(--background)] z-[99] flex flex-col items-center shadow-lg pt-24 md:pt-36"
                         >
                             <button
                                 className="fixed top-6 left-6 text-xl font-bold bg-transparent text-[var(--grey)] hover:text-[var(--red)] transition-colors z-[101] p-2"
