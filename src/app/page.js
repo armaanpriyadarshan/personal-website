@@ -473,33 +473,61 @@ export default function Home() {
     {
       name: "art",
       size: "44M",
-      content: <Hobby hobby="digital & traditional art" description="developing my style through watercolor and procreate" media={art} thumbnail="/img/art/thumbnail.jpg" />
+      content: <Hobby hobby="digital & traditional art" description="developing my style through watercolor and procreate" media={art} thumbnail="/img/art/thumbnail.jpg" modalType="gallery" />
     },
     {
       name: "photography",
       size: "43M",
-      content: <Hobby hobby="natural photography" description="shot on a canon eos rebel t3i" media={photography} thumbnail="/img/photography/IMG_0804.JPG" />
+      content: <Hobby hobby="natural photography" description="shot on a canon eos rebel t3i" media={photography} thumbnail="/img/photography/IMG_0804.JPG" modalType="gallery" />
     },
     {
       name: "poetry",
       size: "1.2G",
-      content: <Hobby hobby="poetry" description="embracing the mundane with imagery, metaphor, and whimsy" text="read a poem" thumbnail="/img/poetry.png" />
+      content: <Hobby hobby="poetry" description="embracing the mundane with imagery, metaphor, and whimsy" text="read a poem" thumbnail="/img/poetry.png" modalType="poetry" />
     },
     {
-      name: "media",
-      size: "600M",
+      name: "fiction",
+      size: "17K",
       lastModified: "2024-03-20",
-      content: <Hobby hobby="fiction" description="fiction, non-fiction, and poetry" />
+      content: (
+        <Hobby
+          hobby="fiction in consumption"
+          description={
+            <>
+              <span role="img" aria-label="book">📖</span> currently reading: <i>dubliners</i>
+              <br />
+              <span role="img" aria-label="movie">📺</span> currently watching: <i>succession</i>
+              <br />
+              <span role="img" aria-label="music">🎧</span> currently listening: <i>MUSIC</i>
+              <br />
+              <br />
+              <span className="font-bold uppercase">- favorites -</span>
+              <br />
+              <br />
+              book: <i>musashi</i>
+              <br />
+              movie: <i>forrest gump</i>
+              <br />
+              tv show: <i>community</i>
+              <br />
+              album: <i>madvillainy</i>
+              <br />
+
+            </>
+          }
+          modalType="none"
+        />
+      )
     },
     {
       name: "pool",
-      size: "600M",
-      content: <Hobby hobby="pool" description="fiction, non-fiction, and poetry" />
+      size: "",
+      content: <Hobby hobby="pool" description="cue-sport (8-ball, 9-ball, snooker) enthusiast" thumbnail="/img/pool.jpg" modalType="none" />
     },
     {
       name: "etc",
       size: "600M",
-      content: <Hobby hobby="etc" description="my other hobbies include biking, terraria, and tetris" />
+      content: <Hobby hobby="etc" description="my other hobbies include biking, terraria, and tetris" thumbnail="/img/tetris.png" modalType="none" />
     }
   ];
 

@@ -5,7 +5,7 @@ import Modal from './Modal';
 import GalleryModal from './GalleryModal';
 import PoetryModal from './PoetryModal';
 
-export default function Hobby({ hobby, description, media, thumbnail, poem }) {
+export default function Hobby({ hobby, description, media, thumbnail, modalType }) {
   const [aspectRatio, setAspectRatio] = useState(1);
   const [modal, setModal] = useState({ type: null, data: null });
 
@@ -28,6 +28,9 @@ export default function Hobby({ hobby, description, media, thumbnail, poem }) {
     setModal({ type: null, data: null });
   };
 
+  const showGallery = modalType === 'gallery' && media;
+  const showPoem = modalType === 'poetry';
+
   return (
     <div className="pr-4 h-80 flex flex-col">
       <div className="mb-4">
@@ -39,10 +42,14 @@ export default function Hobby({ hobby, description, media, thumbnail, poem }) {
       </div>
       {description && (
         <div className="text-sm font-mono">
-          <Scramble text={description} delay={0} />
+          {typeof description === 'string' ? (
+            <Scramble text={description} delay={0} />
+          ) : (
+            description
+          )}
         </div>
       )}
-      {media ? (
+      {showGallery && (
         <div className="mt-2 text-sm font-mono">
           <a
             href={typeof media === 'string' ? media : '#'}
@@ -55,7 +62,8 @@ export default function Hobby({ hobby, description, media, thumbnail, poem }) {
             view gallery
           </a>
         </div>
-      ) : (
+      )}
+      {showPoem && (
         <div className="mt-2 text-sm font-mono">
           <button
             className="underline hover:bg-foreground hover:text-background hover:no-underline uppercase"
@@ -80,8 +88,8 @@ export default function Hobby({ hobby, description, media, thumbnail, poem }) {
         </div>
       )}
       <Modal isOpen={!!modal.type} onClose={closeModal}>
-        {modal.type === 'gallery' && <GalleryModal onClose={closeModal} media={modal.data} />}
-        {modal.type === 'poem' && <PoetryModal onClose={closeModal} />}
+        {modal.type === 'gallery' && modalType === 'gallery' && <GalleryModal onClose={closeModal} media={modal.data} />}
+        {modal.type === 'poem' && modalType === 'poetry' && <PoetryModal onClose={closeModal} />}
       </Modal>
     </div>
   );

@@ -59,7 +59,7 @@ export default function GalleryModal({ onClose, media }) {
               <button
                 className="absolute top-2 right-2 text-xl font-mono hover:text-[var(--red)] focus:outline-none"
                 onClick={handleCloseExpanded}
-                aria-label="Close expanded image"
+                aria-label="close expanded image"
               >
                 [x]
               </button>
