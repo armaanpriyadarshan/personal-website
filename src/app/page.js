@@ -12,6 +12,7 @@ import FileManager from './components/FileManager';
 import Project from './components/Project';
 import Skills from './components/Skills';
 import Hobby from './components/Hobby';
+import Video from './components/Video';
 
 export default function Home() {
   const infoLines = [
@@ -651,7 +652,8 @@ export default function Home() {
       id: 'sl',
       fileLocation: "~/about",
       commandText: "sl",
-      placeholder: "enter 'sl'"
+      placeholder: "enter 'sl'",
+      content: <Video />
     }
   ];
 
