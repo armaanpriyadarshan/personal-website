@@ -489,7 +489,6 @@ export default function Home() {
     {
       name: "fiction",
       size: "17K",
-      lastModified: "2024-03-20",
       content: (
         <Hobby
           hobby="fiction in consumption"
@@ -522,12 +521,12 @@ export default function Home() {
     },
     {
       name: "pool",
-      size: "",
+      size: "8B",
       content: <Hobby hobby="pool" description="cue-sport (8-ball, 9-ball, snooker) enthusiast" thumbnail="/img/pool.jpg" modalType="none" />
     },
     {
       name: "etc",
-      size: "600M",
+      size: "3K",
       content: <Hobby hobby="etc" description="my other hobbies include biking, terraria, and tetris" thumbnail="/img/tetris.png" modalType="none" />
     }
   ];
