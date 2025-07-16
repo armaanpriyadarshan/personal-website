@@ -33,7 +33,7 @@ export default function Modal({ isOpen, onClose, children }) {
               borderWidth: { duration: 0.5, ease: 'easeOut' },
               opacity: { duration: 0.3 }
             }}
-            className="border border-[var(--grey)] p-6 relative bg-background flex flex-col w-[80vw] mt-12"
+            className="border border-[var(--grey)] p-6 relative bg-background flex flex-col w-[80vw] my-12"
             onClick={e => e.stopPropagation()}
           >
             {children}
