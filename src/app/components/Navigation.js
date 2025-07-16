@@ -54,7 +54,7 @@ export default function Navigation() {
                 transition={{ type: 'spring', stiffness: 60, damping: 12 }}
                 className="fixed left-0 top-0 h-screen bg-[var(--background)] z-50 flex flex-col items-center shadow-lg pt-36"
             >
-                <div className="text-left flex flex-col px-12 font-mono gap-y-2">
+                <div className="text-left flex flex-col px-10 font-mono gap-y-2">
                     <span className="text-[var(--lightBlue)] font-bold select-none leading-none">~</span>
                     <span className="font-bold select-none leading-none flex items-center gap-1">
                         <span className="text-[var(--grey)]">└─ </span>
