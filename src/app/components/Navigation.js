@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigation } from '../contexts/NavigationContext';
+import { IoFolderOutline, IoDocumentOutline } from 'react-icons/io5';
 
 const sectionIds = {
     whoami: 'section-whoami',
@@ -55,12 +56,13 @@ export default function Navigation() {
             >
                 <div className="text-left flex flex-col px-12 font-mono gap-y-2">
                     <span className="text-[var(--lightBlue)] font-bold select-none leading-none">~</span>
-                    <span className="font-bold select-none leading-none">
+                    <span className="font-bold select-none leading-none flex items-center gap-1">
                         <span className="text-[var(--grey)]">└─ </span>
-                        <span className="text-[var(--darkBlue)]"> about</span>
+                        <IoFolderOutline className="inline text-[var(--darkBlue)] text-lg align-middle ml-2" />
+                        <span className="text-[var(--darkBlue)] ml-1">about</span>
                     </span>
                     <motion.div
-                        className="ml-8 relative mt-1 flex flex-col gap-y-2"
+                        className="ml-9 relative mt-1 flex flex-col gap-y-2"
                         initial="hidden"
                         animate="visible"
                         variants={{
@@ -86,7 +88,7 @@ export default function Navigation() {
                                     }}
                                 >
                                     <span className="text-[var(--grey)] w-4">{isLast ? '└─' : '├─'} </span>
-                                    <span className="text-white ml-4 group-hover:text-background group-hover:bg-foreground px-1 rounded transition-colors duration-200"> {label}</span>
+                                    <span className="text-white ml-2 group-hover:text-background group-hover:bg-foreground px-1 rounded transition-colors duration-200 flex items-center gap-2"><IoDocumentOutline className="inline align-middle" /> {label}</span>
                                 </motion.button>
                             );
                         })}
@@ -137,7 +139,8 @@ export default function Navigation() {
                                 <span className="text-[var(--lightBlue)] font-bold select-none leading-none">~</span>
                                 <span className="font-bold select-none leading-none">
                                     <span className="text-[var(--grey)]">└─ </span>
-                                    <span className="text-[var(--darkBlue)]"> about</span>
+                                    <IoFolderOutline className="inline text-[var(--darkBlue)] text-lg align-middle" />
+                                    <span className="text-[var(--darkBlue)] ml-1">about</span>
                                 </span>
                                 <div className="ml-8 relative mt-1 flex flex-col gap-y-2">
                                     <div className="absolute left-[4px] -top-1 bottom-4 w-px bg-[var(--grey)] z-0" />
@@ -155,7 +158,7 @@ export default function Navigation() {
                                                 }
                                             >
                                                 <span className="text-[var(--grey)] w-4">{isLast ? '└─' : '├─'} </span>
-                                                <span className="text-white ml-4 group-hover:text-background group-hover:bg-foreground px-1 rounded transition-colors duration-200"> {label}</span>
+                                                <span className="text-white ml-4 group-hover:text-background group-hover:bg-foreground px-1 rounded transition-colors duration-200 flex items-center gap-1"><IoDocumentOutline className="inline align-middle" /> {label}</span>
                                             </button>
                                         );
                                     })}
