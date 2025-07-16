@@ -135,7 +135,7 @@ export default function Navigation() {
                             >
                                 [x]
                             </button>
-                            <div className="text-left flex flex-col px-12 font-mono gap-y-2 w-full">
+                            <div className="text-left flex flex-col px-10 font-mono gap-y-2 w-full">
                                 <span className="text-[var(--lightBlue)] font-bold select-none leading-none">~</span>
                                 <span className="font-bold select-none leading-none">
                                     <span className="text-[var(--grey)]">└─ </span>
