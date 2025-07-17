@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Scramble from './components/Scramble';
 import { IoSchool, IoMail, IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
@@ -15,9 +15,23 @@ import Hobby from './components/Hobby';
 import Video from './components/Video';
 import Navigation from './components/Navigation';
 import { useNavigation } from './contexts/NavigationContext';
+import React from 'react';
+
+function useIsNarrow() {
+    const [isNarrow, setIsNarrow] = useState(false);
+    useEffect(() => {
+        const check = () => setIsNarrow(window.innerWidth <= 1024);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
+    return isNarrow;
+}
 
 export default function Home() {
   const { unlock } = useNavigation();
+  const isNarrow = useIsNarrow();
+
   const infoLines = [
     {
       icon: <IoSchool className="text-[var(--red)]" />,
@@ -38,12 +52,14 @@ export default function Home() {
     {
       icon: <IoLogoGithub className="text-[var(--purple)]" />,
       text: "github.com/armaanpriyadarshan",
+      textShort: "armaanpriyadarshan",
       color: "bg-[var(--purple)]",
       href: "https://github.com/armaanpriyadarshan",
     },
     {
       icon: <IoLogoLinkedin className="text-[var(--darkBlue)]" />,
       text: "linkedin.com/in/armaanpriyadarshan",
+      textShort: "in/armaanpriyadarshan",
       color: "bg-[var(--darkBlue)]",
       href: "https://www.linkedin.com/in/armaanpriyadarshan/",
     },
@@ -571,7 +587,7 @@ export default function Home() {
         <div className="ml-4 mt-4">
           {[
             {
-              company: "fidelity investments",
+              company: isNarrow ? "fidelity" : "fidelity investments",
               location: "merrimack, nh",
               startDate: "2025-06-02",
               endDate: null,
@@ -587,7 +603,7 @@ export default function Home() {
               description: "design and implementation for llm-powered positive psychology mobile app"
             },
             {
-              company: "social neuroscience of affective processes (snap) lab",
+              company: isNarrow ? "snap lab" : "social neuroscience of affective processes (snap) lab",
               location: "worcester, ma",
               startDate: "2024-05-02",
               endDate: "2025-06-31",
@@ -595,7 +611,7 @@ export default function Home() {
               description: "data automation and generative ai — llms & vector databases — for psychological applications and research"
             },
             {
-              company: "brown university school of engineering",
+              company: isNarrow ? "zenit lab" : "brown university school of engineering",
               location: "providence, ri",
               startDate: "2023-06-02",
               endDate: "2023-08-31",
@@ -690,12 +706,14 @@ export default function Home() {
       
       if (!isVisible) return null;
       
+      // Responsive placeholder
+      const placeholder = isNarrow ? command.placeholder : `enter '${command.placeholder}'`;
       return (
-        <div key={command.id} className={index === 0 ? "mt-20" : "mt-12"} id={sectionIds[command.idToUnlock] || undefined}>
+        <div key={command.id} className={index === 0 ? (isNarrow ? "mt-16" : "mt-20") : "mt-12"} id={sectionIds[command.idToUnlock] || undefined}>
           <Command 
             fileLocation={command.fileLocation}
             commandText={command.commandText}
-            placeholder={command.placeholder}
+            placeholder={placeholder}
             shouldScramble={index === 0}
             onComplete={() => {
               unlock(command.idToUnlock);
@@ -768,7 +786,7 @@ export default function Home() {
                           transition={{ duration: 0.3 }}
                           className="flex items-center gap-2"
                         >
-                          {line.icon}
+                          {React.cloneElement(line.icon, { className: `${line.icon.props.className || ''} ${isNarrow ? 'ml-2' : ''}`.trim() })}
                           <span>:</span>
                         </motion.div>
                         {line.href ? (
@@ -779,7 +797,7 @@ export default function Home() {
                             rel="noopener noreferrer"
                           >
                             <Scramble
-                              text={line.text}
+                              text={isNarrow && line.textShort ? line.textShort : line.text}
                               delay={150}
                               onDone={nextLine}
                             />
@@ -794,7 +812,7 @@ export default function Home() {
                       </div>
                     ) : i < lineIndex ? (
                       <div className="flex items-center gap-2 font-bold font-mono text-sm md:text-base text-center md:text-left w-full">
-                        {line.icon}
+                        {React.cloneElement(line.icon, { className: `${line.icon.props.className || ''} ${isNarrow ? 'ml-2' : ''}`.trim() })}
                         <span>:</span>
                         {line.href ? (
                           <a
@@ -803,7 +821,7 @@ export default function Home() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {line.text}
+                            {isNarrow && line.textShort ? line.textShort : line.text}
                           </a>
                         ) : (
                           line.text

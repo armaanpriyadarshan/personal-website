@@ -140,7 +140,7 @@ export default function Navigation() {
                                 <span className="font-bold select-none leading-none">
                                     <span className="text-[var(--grey)]">└─ </span>
                                     <IoFolderOutline className="inline text-[var(--darkBlue)] text-lg align-middle" />
-                                    <span className="text-[var(--darkBlue)] ml-1">about</span>
+                                    <span className="text-[var(--darkBlue)] ml-2">about</span>
                                 </span>
                                 <div className="ml-8 relative mt-1 flex flex-col gap-y-2">
                                     <div className="absolute left-[4px] -top-1 bottom-4 w-px bg-[var(--grey)] z-0" />
@@ -158,7 +158,7 @@ export default function Navigation() {
                                                 }
                                             >
                                                 <span className="text-[var(--grey)] w-4">{isLast ? '└─' : '├─'} </span>
-                                                <span className="text-white ml-4 group-hover:text-background group-hover:bg-foreground px-1 rounded transition-colors duration-200 flex items-center gap-1"><IoDocumentOutline className="inline align-middle" /> {label}</span>
+                                                <span className="text-white ml-2 group-hover:text-background group-hover:bg-foreground px-1 rounded transition-colors duration-200 flex items-center gap-2"><IoDocumentOutline className="inline align-middle" /> {label}</span>
                                             </button>
                                         );
                                     })}
