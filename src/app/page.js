@@ -20,7 +20,7 @@ import React from 'react';
 function useIsNarrow() {
     const [isNarrow, setIsNarrow] = useState(false);
     useEffect(() => {
-        const check = () => setIsNarrow(window.innerWidth <= 1024);
+        const check = () => setIsNarrow(window.innerWidth <= 768);
         check();
         window.addEventListener('resize', check);
         return () => window.removeEventListener('resize', check);
@@ -76,7 +76,7 @@ export default function Home() {
       name: "personal-website",
       size: "1.5G",
       lastModified: "2025-06-27",
-      content: <Project project="personal portfolio website" github="https://github.com/armaanpriyadarshan/personal-website" description="a terminal-themed website for myself (this one)" stack={["next.js", "tailwind css", "react", "javascript"]} media="/img/projects/personal-website.png" />
+      content: <Project project={isNarrow ? "portfolio website" : "personal portfolio website"} github="https://github.com/armaanpriyadarshan/personal-website" description="a terminal-themed website for myself (this one)" stack={["next.js", "tailwind css", "react", "javascript"]} media="/img/projects/personal-website.png" />
     },
     {
       name: "post-it",

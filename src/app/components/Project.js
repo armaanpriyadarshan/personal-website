@@ -15,23 +15,25 @@ export default function Project({ project, github, description, stack, media }) 
   }, []);
 
   return (
-    <div className="pr-4 h-full flex flex-col">
+    <div className="mt-4 md:mt-0 pr-4 h-100 md:h-full flex flex-col">
       <div className="mb-4">
-        <div className="flex items-center gap-3 pb-2 border-b border-[var(--grey)] w-fit">
-          <div className="text-xl font-bold uppercase">
-            - {project}
-          </div>
+        <div className="text-lg md:text-xl font-bold uppercase pb-1 md:pb-2 border-b border-[var(--grey)] w-fit">
+          - {project}
           {github && (
             <a
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="translate-x-0.25 -translate-y-0.25"
+              className="inline-block align-middle ml-2"
+              style={{ verticalAlign: 'middle' }}
             >
-              <IoLogoGithub className="text-2xl" />
+              <IoLogoGithub
+                className="text-2xl inline align-middle"
+                style={{ transform: 'translate(2px, -2px)' }}
+              />
             </a>
           )}
-          <span className="text-xl font-bold select-none">-</span>
+          <span className="select-none ml-3">-</span>
         </div>
       </div>
       {description && (
@@ -59,7 +61,7 @@ export default function Project({ project, github, description, stack, media }) 
         </div>
       )}
       {media && (
-        <div className="mt-8 flex-1 flex items-end">
+        <div className="mt-4 md:mt-8 flex-1 flex items-end">
           <div
             className="h-full relative"
             style={{ aspectRatio: aspectRatio }}
