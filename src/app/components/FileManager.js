@@ -73,7 +73,7 @@ export default function FileManager({ directory, subdirectories = [] }) {
   return (
     <div className="font-mono" ref={containerRef} tabIndex={0}>
       <div className="border border-[var(--grey)] p-4 relative">
-        <div className="absolute top-0 left-4 mt-[-12px] bg-background px-2">
+        <div className="absolute top-0 left-4 mt-[-12px] bg-background px-2 overflow-x-auto whitespace-nowrap max-w-[90%]">
           <span className="text-sm md:text-base text-[var(--green)] font-semibold">armaan@arch</span>
           <span className="text-sm md:text-base font-semibold">:</span>
           <span className="text-sm md:text-base text-[var(--darkBlue)] font-semibold">~/about/{directory}/</span>

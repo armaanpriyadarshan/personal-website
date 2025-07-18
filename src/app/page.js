@@ -124,13 +124,13 @@ export default function Home() {
       name: "ftc",
       size: "63M",
       lastModified: "2023-02-03",
-      content: <Project project="first tech challenge" github="https://github.com/12589-PioneerRobotics/PowerPlay" description="top 40 robots from ftc 2023 powerplay" stack={["kotlin", "android studio", "opencv"]} media="/img/projects/ftc.JPG" />
+      content: <Project project={isNarrow ? "first robotics" : "first tech challenge"} github="https://github.com/12589-PioneerRobotics/PowerPlay" description="top 40 robots from ftc 2023 powerplay" stack={["kotlin", "android studio", "opencv"]} media="/img/projects/ftc.JPG" />
     },
     {
       name: "drone",
       size: "56M",
       lastModified: "2020-06-17",
-      content: <Project project="raspberry pi quadcopter" description="later added voice control and computer vision" stack={["python", "raspberry pi", "embedded electronics", "aws", "alexa", "caffe", "flask"]} media="/img/projects/drone.jpg" />
+      content: <Project project={isNarrow ? "quadcopter" : "raspberry pi quadcopter"} description="later added voice control and computer vision" stack={["python", "raspberry pi", "embedded electronics", "aws", "alexa", "caffe", "flask"]} media="/img/projects/drone.jpg" />
     },
     {
       name: "multimodal-glasses",
@@ -606,7 +606,7 @@ export default function Home() {
               company: isNarrow ? "snap lab" : "social neuroscience of affective processes (snap) lab",
               location: "worcester, ma",
               startDate: "2024-05-02",
-              endDate: "2025-06-31",
+              endDate: "2025-05-02",
               role: "researcher",
               description: "data automation and generative ai — llms & vector databases — for psychological applications and research"
             },

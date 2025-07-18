@@ -15,7 +15,7 @@ export default function Project({ project, github, description, stack, media }) 
   }, []);
 
   return (
-    <div className="mt-4 md:mt-0 pr-4 h-100 md:h-full flex flex-col">
+    <div className="pr-4 h-full flex flex-col">
       <div className="mb-4">
         <div className="text-lg md:text-xl font-bold uppercase pb-1 md:pb-2 border-b border-[var(--grey)] w-fit">
           - {project}
@@ -38,7 +38,12 @@ export default function Project({ project, github, description, stack, media }) 
       </div>
       {description && (
         <div className="text-sm font-mono">
-          <Scramble text={description} delay={0} />
+          <span className="hidden md:inline">
+            <Scramble text={description} delay={0} />
+          </span>
+          <span className="md:hidden">
+            {description}
+          </span>
         </div>
       )}
       {stack && (
@@ -63,7 +68,7 @@ export default function Project({ project, github, description, stack, media }) 
       {media && (
         <div className="mt-4 md:mt-8 flex-1 flex items-end">
           <div
-            className="h-full relative"
+            className="h-full relative w-full max-w-full overflow-hidden md:w-auto md:max-w-none"
             style={{ aspectRatio: aspectRatio }}
           >
             <Image

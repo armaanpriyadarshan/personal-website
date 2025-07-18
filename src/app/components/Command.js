@@ -51,7 +51,7 @@ export default function Command({ fileLocation, commandText, placeholder, childr
   // Handle Enter key
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      if (input.trim() === commandText) {
+      if (input.trim().toLowerCase() === commandText.toLowerCase()) {
         setShowContent(true);
         setIsError(false);
       } else {
