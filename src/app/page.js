@@ -498,7 +498,7 @@ export default function Home() {
     {
       name: "photography",
       size: "43M",
-      content: <Hobby hobby="natural photography" description="shot on a canon eos rebel t3i" media={photography} thumbnail="/img/photography/IMG_0804.JPG" modalType="gallery" />
+      content: <Hobby hobby={isNarrow ? "photography" : "natural photography"} description="shot on a canon eos rebel t3i" media={photography} thumbnail="/img/photography/IMG_0804.JPG" modalType="gallery" />
     },
     {
       name: "poetry",

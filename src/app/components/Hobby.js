@@ -32,7 +32,7 @@ export default function Hobby({ hobby, description, media, thumbnail, modalType 
   const showPoem = modalType === 'poetry';
 
   return (
-    <div className="pr-4 h-80 flex flex-col">
+    <div className="pr-4 h-full md:h-80 flex flex-col">
       <div className="mb-4">
         <div className="flex items-center gap-3 pb-2 border-b border-[var(--grey)] w-fit">
           <div className="text-xl font-bold uppercase">
@@ -42,11 +42,7 @@ export default function Hobby({ hobby, description, media, thumbnail, modalType 
       </div>
       {description && (
         <div className="text-sm font-mono">
-          {typeof description === 'string' ? (
-            <Scramble text={description} delay={0} />
-          ) : (
-            description
-          )}
+          {description}
         </div>
       )}
       {showGallery && (
@@ -74,8 +70,11 @@ export default function Hobby({ hobby, description, media, thumbnail, modalType 
         </div>
       )}
       {thumbnail && (
-        <div className="mt-4 flex-1 flex items-end">
-          <div className="h-full relative" style={{ aspectRatio: aspectRatio }}>
+        <div className="mt-4 md:mt-8 flex-1 flex items-end">
+          <div
+            className="h-full relative w-full max-w-full overflow-hidden md:w-auto md:max-w-none"
+            style={{ aspectRatio: aspectRatio }}
+          >
             <Image
               src={thumbnail}
               alt={`${hobby} thumbnail`}

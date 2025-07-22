@@ -9,18 +9,18 @@ export default function Video() {
         return () => clearTimeout(timeout);
     }, []);
     return (
-        <div className="mt-8 flex flex-col items-center">
+        <div className="mt-4 md:mt-8 flex flex-col items-center">
             <video src="/sl.mov" autoPlay loop muted style={{ width: "100%" }} />
-            <p>thanks for visiting!</p>
-            <div className="flex flex-row gap-4 mt-2">
+            <p className="text-sm md:text-base">thanks for visiting!</p>
+            <div className="flex flex-row gap-4 mt-2 text-sm md:text-base">
                 <a href="mailto:armaanp4423@gmail.com" target="_blank" rel="noopener noreferrer" className="group">
-                    <IoMail className="text-2xl group-hover:text-white hover:scale-110 transition-transform" />
+                    <IoMail className="text-xl md:text-2xl group-hover:text-white hover:scale-110 transition-transform" />
                 </a>
                 <a href="https://github.com/armaanpriyadarshan" target="_blank" rel="noopener noreferrer" className="group">
-                    <IoLogoGithub className="text-2xl group-hover:text-white hover:scale-110 transition-transform" />
+                    <IoLogoGithub className="text-xl md:text-2xl group-hover:text-white hover:scale-110 transition-transform" />
                 </a>
                 <a href="https://www.linkedin.com/in/armaanpriyadarshan/" target="_blank" rel="noopener noreferrer" className="group">
-                    <IoLogoLinkedin className="text-2xl group-hover:text-white hover:scale-110 transition-transform" />
+                    <IoLogoLinkedin className="text-xl md:text-2xl group-hover:text-white hover:scale-110 transition-transform" />
                 </a>
             </div>
         </div>
