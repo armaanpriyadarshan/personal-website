@@ -136,7 +136,7 @@ export default function Home() {
       name: "multimodal-glasses",
       size: "106K",
       lastModified: "2022-08-23",
-      content: <Project project="multimodal glasses" github="https://github.com/armaanpriyadarshan/multimodal-glasses" description="vqa and captioning for the visually impaired" stack={["python", "esp32", "pytorch", "transformers", "flask"]} media="/img/projects/glasses.jpg" />
+      content: <Project project={isNarrow ? "smart glasses" : "multimodal glasses"} github="https://github.com/armaanpriyadarshan/multimodal-glasses" description="vqa and captioning for the visually impaired" stack={["python", "esp32", "pytorch", "transformers", "flask"]} media="/img/projects/glasses.jpg" />
     },
     {
       name: "pill-counting",
