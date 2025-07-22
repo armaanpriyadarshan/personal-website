@@ -10,7 +10,7 @@ export default function Video() {
     }, []);
     return (
         <div className="mt-4 md:mt-8 flex flex-col items-center">
-            <video src="/sl.mov" autoPlay loop muted style={{ width: "100%" }} />
+            <video src="/sl.mov" autoPlay loop muted playsInline style={{ width: "100%" }} />
             <p className="text-sm md:text-base">thanks for visiting!</p>
             <div className="flex flex-row gap-4 mt-2 text-sm md:text-base">
                 <a href="mailto:armaanp4423@gmail.com" target="_blank" rel="noopener noreferrer" className="group">

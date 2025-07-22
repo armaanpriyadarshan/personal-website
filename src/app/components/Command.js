@@ -38,6 +38,7 @@ export default function Command({ fileLocation, commandText, placeholder, childr
   // Focus input when it appears
   useEffect(() => {
     if (timeDone && inputRef.current) {
+      inputRef.current.scrollIntoView({ block: "center" });
       inputRef.current.focus();
     }
   }, [timeDone]);
