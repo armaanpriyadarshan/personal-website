@@ -42,7 +42,13 @@ export default function Hobby({ hobby, description, media, thumbnail, modalType 
       </div>
       {description && (
         <div className="text-sm font-mono">
-          {description}
+          <span className="hidden md:inline">
+            <Scramble text={typeof description === "string" ? description : undefined} delay={0} />
+            {typeof description !== "string" && description}
+          </span>
+          <span className="inline md:hidden">
+            {description}
+          </span>
         </div>
       )}
       {showGallery && (
