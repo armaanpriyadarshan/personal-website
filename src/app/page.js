@@ -786,7 +786,7 @@ export default function Home() {
                           transition={{ duration: 0.3 }}
                           className="flex items-center gap-2"
                         >
-                          {React.cloneElement(line.icon, { className: `${line.icon.props.className || ''} ${isNarrow ? 'ml-2' : ''}`.trim() })}
+                          {React.cloneElement(line.icon, { className: `${line.icon.props.className || ''} ${isNarrow ? 'ml-1' : ''}`.trim() })}
                           <span>:</span>
                         </motion.div>
                         {line.href ? (
@@ -812,7 +812,7 @@ export default function Home() {
                       </div>
                     ) : i < lineIndex ? (
                       <div className="flex items-center gap-2 font-bold font-mono text-sm md:text-base text-center md:text-left w-full">
-                        {React.cloneElement(line.icon, { className: `${line.icon.props.className || ''} ${isNarrow ? 'ml-2' : ''}`.trim() })}
+                        {React.cloneElement(line.icon, { className: `${line.icon.props.className || ''} ${isNarrow ? 'ml-1' : ''}`.trim() })}
                         <span>:</span>
                         {line.href ? (
                           <a
