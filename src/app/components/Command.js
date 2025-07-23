@@ -101,12 +101,12 @@ export default function Command({ fileLocation, commandText, placeholder, childr
               marginLeft: '0.25em',
               marginRight: '0.5em',
               display: 'inline-block',
-              transform: 'translateY(-2px) scaleX(1.25)',
+              transform: 'translateY(-4px) scaleX(1.25)',
               fontWeight: 700,
               textShadow: '0 0 1px var(--green)',
               alignSelf: 'center',
             }}
-            className="md:translate-y-[4px]"
+            className="md:translate-y-[6px]"
           >
             ❭
           </span>
