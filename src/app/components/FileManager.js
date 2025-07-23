@@ -113,7 +113,7 @@ export default function FileManager({ directory, subdirectories = [] }) {
               {/* Mobile: arrows + swipeable content */}
               <div className="flex items-center justify-center relative md:hidden">
                 <button
-                  className={`absolute -left-8 top-1/2 -translate-y-1/2 text-[var(--green)] text-2xl focus:outline-none bg-[var(--background)] ${activeIndex === 0 ? 'invisible' : ''}`}
+                  className={`absolute -left-8 top-1/2 -translate-y-1/2 pt-1.5 text-[var(--green)] text-2xl focus:outline-none bg-[var(--background)] ${activeIndex === 0 ? 'invisible' : ''} -translate-y-[2px] md:translate-y-0`}
                   style={{ zIndex: 2 }}
                   onClick={handlePrev}
                   disabled={activeIndex === 0}
@@ -129,7 +129,7 @@ export default function FileManager({ directory, subdirectories = [] }) {
                   {getActiveSubdirectory().content}
                 </div>
                 <button
-                  className={`absolute -right-6 top-1/2 -translate-y-1/2 text-[var(--green)] text-2xl focus:outline-none bg-[var(--background)] ${activeIndex === subdirectories.length - 1 ? 'invisible' : ''}`}
+                  className={`absolute -right-6 top-1/2 -translate-y-1/2 pt-1.5 text-[var(--green)] text-2xl focus:outline-none bg-[var(--background)] ${activeIndex === subdirectories.length - 1 ? 'invisible' : ''} -translate-y-[2px] md:translate-y-0`}
                   style={{ zIndex: 2 }}
                   onClick={handleNext}
                   disabled={activeIndex === subdirectories.length - 1}
