@@ -8,6 +8,8 @@ export default function Command({ fileLocation, commandText, placeholder, childr
   const [showBlock, setShowBlock] = useState(true);
   const [isError, setIsError] = useState(false);
   const [showContent, setShowContent] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
+  const timeoutRef = useRef(null);
   const ref = useRef(null);
   const inputRef = useRef(null);
 
@@ -42,6 +44,26 @@ export default function Command({ fileLocation, commandText, placeholder, childr
       inputRef.current.focus();
     }
   }, [timeDone]);
+
+  // Show info overlay if user hasn't started typing after 3 seconds
+  useEffect(() => {
+    if (timeDone && input === '' && !showContent) {
+      timeoutRef.current = setTimeout(() => {
+        setShowOverlay(true);
+      }, 3000); // 3 seconds
+    }
+    return () => {
+      clearTimeout(timeoutRef.current);
+    };
+  }, [timeDone, input, showContent]);
+
+  // Hide overlay as soon as user starts typing
+  useEffect(() => {
+    if (input !== '') {
+      setShowOverlay(false);
+      clearTimeout(timeoutRef.current);
+    }
+  }, [input]);
 
   // Handle input change
   const handleInput = (e) => {
@@ -140,12 +162,17 @@ export default function Command({ fileLocation, commandText, placeholder, childr
             </div>
           )}
         </div>
+        {showOverlay && (
+          <div className="ml-2 md:ml-4 pt-2 text-[var(--grey)]">
+            ⓘ type in the command to proceed
+          </div>
+        )}
         {showContent && (
-          <div className="relative w-full -ml-2 md:ml-0" style={{ paddingTop: '1rem' }}>
+          <div className="relative w-full -ml-2 md:ml-0 pt-4">
             {children}
           </div>
         )}
       </div>
     </div>
   );
-} 
+}
