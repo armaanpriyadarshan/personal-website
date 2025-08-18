@@ -805,7 +805,7 @@ export default function Home() {
                           </a>
                         ) : (
                           <Scramble
-                            text={line.text}
+                            text={isNarrow && line.textShort ? line.textShort : line.text}
                             delay={150}
                             onDone={nextLine}
                           />
@@ -825,7 +825,7 @@ export default function Home() {
                             {isNarrow && line.textShort ? line.textShort : line.text}
                           </a>
                         ) : (
-                          line.text
+                          isNarrow && line.textShort ? line.textShort : line.text
                         )}
                       </div>
                     ) : (
