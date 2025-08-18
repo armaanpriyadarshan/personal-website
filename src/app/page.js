@@ -36,6 +36,7 @@ export default function Home() {
     {
       icon: <IoSchool className="text-[var(--red)]" />,
       text: "computer science & mathematics",
+      textShort: "computer science & math",
       color: "bg-[var(--red)]",
     },
     {
