@@ -1,0 +1,45 @@
+/* extremely minimalist, black & white, late-90s academia */
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background: #fff;
+  color: #000;
+  max-width: 40em;
+  margin: 2em auto;
+  padding: 0 1em;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 0 0 0.5em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 2em 0;
+}
+
+figcaption {
+  font-size: 0.85em;
+  margin-top: 0.4em;
+}
+
+/* pull lists closer to the paragraph that introduces them */
+p + ul {
+  margin-top: -0.5em;
+}
+
+/* classic browser-default link colors */
+a {
+  color: #0000ee;
+}
+
+a:visited {
+  color: #551a8b;
+}
