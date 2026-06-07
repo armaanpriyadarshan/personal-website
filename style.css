@@ -24,9 +24,14 @@ figure {
   margin: 2em 0;
 }
 
-figcaption {
-  font-size: 0.85em;
-  margin-top: 0.4em;
+/* no gap between the header and the first picture */
+figure:first-of-type {
+  margin-top: 0;
+}
+
+/* tighter spacing for the photo gallery */
+.photos figure {
+  margin: 0.5em 0;
 }
 
 /* pull lists closer to the paragraph that introduces them */
