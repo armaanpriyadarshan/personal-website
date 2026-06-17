@@ -13,5 +13,6 @@ img { max-width: 100%; height: auto; }
 
 figure { margin: 2em 0; }
 figure:first-of-type { margin-top: 0; }
+figure p { margin: 0.25em 0 0; }
 .photos figure { margin: 0.5em 0; }
 p + ul { margin-top: -0.5em; }
