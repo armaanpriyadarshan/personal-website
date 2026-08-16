@@ -1,18 +1,131 @@
-/* extremely minimalist, black & white, late-90s academia */
+/* extremely minimalist, black & white, typeset like a LaTeX article */
 
-body {
-  max-width: 40em;
-  margin: 2em auto;
-  padding: 0 1em;
-  line-height: 1.4;
+@font-face {
+  font-family: "Latin Modern";
+  src: url("fonts/LM-regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Latin Modern";
+  src: url("fonts/LM-italic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Latin Modern";
+  src: url("fonts/LM-bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Latin Modern";
+  src: url("fonts/LM-bold-italic.woff2") format("woff2");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
 }
 
-h1 { font-size: 1.6em; margin: 0 0 0.5em; }
+body {
+  max-width: 34em;
+  margin: 3em auto 5em;
+  padding: 0 1.5em;
+  font-family: "Latin Modern", Cambria, Georgia, serif;
+  font-size: 1.15em;
+  line-height: 1.5;
+  color: #111;
+  background: #fff;
+  counter-reset: section figure;
+}
+
+/* \maketitle */
+h1 {
+  font-size: 1.7em;
+  font-weight: normal;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 0 1.5em;
+}
+
+/* \section */
+h2, h3 {
+  font-size: 1.05em;
+  font-weight: bold;
+  margin: 2em 0 0.5em;
+}
+
+/* paragraphs are set flush, separated by indentation rather than space */
+p {
+  margin: 0;
+  text-align: justify;
+  hyphens: auto;
+}
+p + p { text-indent: 1.5em; }
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.15em;
+}
+
+/* \itemize */
+ul {
+  margin: 1em 0;
+  padding-left: 2.5em;
+}
+li { margin: 0.15em 0; }
 
 img { max-width: 100%; height: auto; }
 
-figure { margin: 2em 0; }
+.headshot,
+body > img {
+  display: block;
+  margin: 0 auto 1.5em;
+}
+
+/* floats: centered, with a numbered caption */
+figure {
+  margin: 2em 0;
+  text-align: center;
+  counter-increment: figure;
+}
 figure:first-of-type { margin-top: 0; }
-figure p { margin: 0.25em 0 0; }
-.photos figure { margin: 0.5em 0; }
-p + ul { margin-top: -0.5em; }
+figure p {
+  margin: 0.5em 0 0;
+  font-size: 0.9em;
+  text-align: center;
+  text-indent: 0;
+}
+.paintings figure p::before { content: "Figure " counter(figure) ": "; }
+
+.photos figure { margin: 1em 0; }
+
+/* \tableofcontents */
+.toc {
+  list-style: none;
+  padding-left: 1.5em;
+  counter-reset: toc;
+}
+.toc li { counter-increment: toc; }
+.toc li::before {
+  content: counter(toc);
+  display: inline-block;
+  min-width: 2.25em;
+}
+
+/* verse: unjustified, ragged right, stanzas set off by space */
+.poetry h3 { margin-top: 2.5em; }
+.poetry h3::before {
+  content: counter(section) "\2003";
+  counter-increment: section;
+}
+.poetry p {
+  margin: 0 0 1em;
+  text-align: left;
+  text-indent: 0;
+  hyphens: none;
+}
